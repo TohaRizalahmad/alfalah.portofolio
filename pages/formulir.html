@@ -69,57 +69,6 @@
 
     .nav-logo { height: 50px; width: auto; }
 
-    .nav-menu {
-      display: flex;
-      gap: 35px;
-      list-style: none;
-      align-items: center;
-    }
-
-    .nav-menu a {
-      color: var(--text-light);
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 15px;
-      transition: var(--transition);
-      position: relative;
-    }
-
-    .nav-menu a::after {
-      content: '';
-      position: absolute;
-      bottom: -5px; left: 0;
-      width: 0; height: 2px;
-      background: var(--accent);
-      transition: var(--transition);
-    }
-
-    .nav-menu a:hover::after { width: 100%; }
-    .nav-menu a:hover { color: var(--accent); }
-
-    .nav-menu a.active { color: var(--accent); }
-    .nav-menu a.active::after { width: 100%; }
-
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
-
-    .hamburger span {
-      width: 25px; height: 3px;
-      background: var(--text-light);
-      transition: var(--transition);
-      border-radius: 2px;
-    }
-
-    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(8px, 8px); }
-    .hamburger.active span:nth-child(2) { opacity: 0; }
-    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
-
     /* ========== PAGE HERO ========== */
     .page-hero {
       background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, #3a5f58 100%);
@@ -834,31 +783,6 @@
 
     /* ========== RESPONSIVE ========== */
     @media (max-width: 768px) {
-      .hamburger { display: flex; }
-
-      .nav-menu {
-        position: fixed;
-        top: 80px; left: 0;
-        width: 100%;
-        background: var(--primary);
-        flex-direction: column;
-        gap: 0;
-        padding: 20px 0;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.4s ease;
-      }
-
-      .nav-menu.active { max-height: 400px; }
-
-      .nav-menu li { width: 100%; }
-
-      .nav-menu a {
-        display: block;
-        padding: 14px 8%;
-        border-bottom: 1px solid rgba(255,255,255,0.08);
-      }
-
       .page-hero h1 { font-size: 32px; }
       .page-hero { padding: 120px 6% 60px; }
 
@@ -929,20 +853,7 @@
   <nav class="navbar">
     <div class="nav-container">
       <img src="img/Properti Utama/Logo Browser.png" alt="Logo Al-Falah" class="nav-logo">
-      <ul class="nav-menu">
-        <li><a href="index.html#beranda">Beranda</a></li>
-        <li><a href="index.html#profil">Profil</a></li>
-        <li><a href="index.html#program">Program</a></li>
-        <li><a href="index.html#kegiatan">Kegiatan</a></li>
-        <li><a href="index.html#fasilitas">Fasilitas</a></li>
-        <li><a href="index.html#pendaftaran">Pendaftaran</a></li>
-        <li><a href="index.html#kontak">Kontak</a></li>
-      </ul>
-      <button class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <a href="index.html" class="home-btn">Home</a>
     </div>
   </nav>
 
@@ -1250,23 +1161,6 @@
 
   <!-- ========== JAVASCRIPT ========== -->
   <script>
-    // ========== MOBILE NAVIGATION ==========
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-    const navLinks = document.querySelectorAll('.nav-menu a');
-
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navMenu.classList.toggle('active');
-    });
-
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-      });
-    });
-
     // ========== NAVBAR SCROLL EFFECT ==========
     const navbar = document.querySelector('.navbar');
     window.addEventListener('scroll', () => {
