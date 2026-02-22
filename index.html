@@ -1624,14 +1624,6 @@
           <input type="text" id="nama" name="nama" placeholder="Masukkan nama lengkap" required>
         </div>
         <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="contoh@email.com" required>
-        </div>
-        <div class="form-group">
-          <label for="telepon">No. Telepon</label>
-          <input type="tel" id="telepon" name="telepon" placeholder="08xxxxxxxxxx" required>
-        </div>
-        <div class="form-group">
           <label for="pesan">Pesan</label>
           <textarea id="pesan" name="pesan" placeholder="Tulis pesan Anda disini..." required></textarea>
         </div>
@@ -1710,8 +1702,8 @@
       <div class="footer-col">
         <h4>Kontak</h4>
         <p>📍 Teluk Dalem Ilir, Rumbia<br>Lampung Tengah</p>
-        <p>📞 0857-0966-2892</p>
-        <p>📧 alfalah.rumbia@gmail.com</p>
+        <p>☎️ 0857-0966-2892</p>
+        <p>✉ alfalah.rumbia@gmail.com</p>
       </div>
 
       <div class="footer-col">
@@ -1914,14 +1906,14 @@ if (contactForm) {
     const pesan = document.getElementById('pesan').value.trim();
 
     // Validasi sederhana
-    if (!nama || !email || !telepon || !pesan) {
+    if (!nama || !pesan) {
       alert('Mohon lengkapi semua field!');
       return;
     }
 
     // Encode untuk WhatsApp
     const waMessage = encodeURIComponent(
-      `Assalamualaikum,\n\nNama: ${nama}\nEmail: ${email}\nTelepon: ${telepon}\nPesan: ${pesan}`
+      `Assalamualaikum,\n\nNama: ${nama}\nPesan: ${pesan}`
     );
     
     // Kirim ke WhatsApp
