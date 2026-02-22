@@ -69,23 +69,6 @@
 
     .nav-logo { height: 50px; width: auto; }
 
-    .nav-logo-text {
-      color: var(--text-light);
-      font-weight: 700;
-      font-size: 18px;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .nav-logo-text span {
-      font-size: 13px;
-      font-weight: 400;
-      opacity: 0.8;
-      display: block;
-    }
-
     .nav-menu {
       display: flex;
       gap: 35px;
@@ -942,27 +925,23 @@
 </head>
 <body>
 
-  <!-- ========== NAVBAR ========== -->
-  <nav class="navbar" id="navbar">
+  <!-- ========== NAVIGATION BAR ========== -->
+  <nav class="navbar">
     <div class="nav-container">
-      <a href="index.html" class="nav-logo-text">
-        <img src="img/Properti Utama/Logo Browser.png" alt="Logo Al-Falah" class="nav-logo" onerror="this.style.display='none'">
-        <div>
-          Pondok Pesantren Al-Falah
-          <span>Teluk Dalem Ilir, Rumbia</span>
-        </div>
-      </a>
-
-      <ul class="nav-menu" id="navMenu">
-        <li><a href="index.html">Beranda</a></li>
+      <img src="img/Properti Utama/Logo Browser.png" alt="Logo Al-Falah" class="nav-logo">
+      <ul class="nav-menu">
+        <li><a href="index.html#beranda">Beranda</a></li>
         <li><a href="index.html#profil">Profil</a></li>
         <li><a href="index.html#program">Program</a></li>
-        <li><a href="pendaftaran.html" class="active">Pendaftaran</a></li>
+        <li><a href="index.html#kegiatan">Kegiatan</a></li>
+        <li><a href="index.html#fasilitas">Fasilitas</a></li>
+        <li><a href="index.html#pendaftaran">Pendaftaran</a></li>
         <li><a href="index.html#kontak">Kontak</a></li>
       </ul>
-
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
+      <button class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
     </div>
   </nav>
@@ -1271,16 +1250,25 @@
 
   <!-- ========== JAVASCRIPT ========== -->
   <script>
-    // ===== NAVBAR =====
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.getElementById('navMenu');
-    const navbar = document.getElementById('navbar');
+    // ========== MOBILE NAVIGATION ==========
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-menu a');
 
     hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('active');
       navMenu.classList.toggle('active');
     });
 
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+      });
+    });
+
+    // ========== NAVBAR SCROLL EFFECT ==========
+    const navbar = document.querySelector('.navbar');
     window.addEventListener('scroll', () => {
       navbar.classList.toggle('scrolled', window.scrollY > 80);
     });
