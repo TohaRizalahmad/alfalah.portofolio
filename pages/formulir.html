@@ -984,11 +984,7 @@
             <div class="error-msg" id="err-alamat">Alamat wajib diisi.</div>
           </div>
 
-          <div class="form-row triple">
-            <div class="form-group">
-              <label for="no_hp">No. HP Santri <span class="optional">(opsional)</span></label>
-              <input type="tel" id="no_hp" name="no_hp" class="form-control" placeholder="Nomor aktif WhatsApp">
-            </div>
+          <div class="form-row">
             <div class="form-group">
               <label for="anak_ke">Anak ke- <span class="optional">(opsional)</span></label>
               <input type="number" id="anak_ke" name="anak_ke" class="form-control"
@@ -1049,63 +1045,6 @@
             <textarea id="pengalaman_pesantren" name="pengalaman_pesantren" class="form-control"
               placeholder="Jika pernah mondok di tempat lain, sebutkan nama pesantren dan berapa lama"
               rows="2" maxlength="300"></textarea>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- === BAGIAN 2.5: PROGRAM DAN KEGIATAN === -->
-      <div class="form-card fade-in">
-        <div class="form-card-header">
-          <div class="form-card-icon">🎯</div>
-          <div>
-            <h2>Program dan Kegiatan</h2>
-            <p>Pilih program pendidikan dan kegiatan ekstrakurikuler yang diminati</p>
-          </div>
-        </div>
-        <div class="form-card-body">
-
-          <div class="form-group">
-            <label>Program Pendidikan <span class="required">*</span></label>
-            <div class="radio-group">
-              <label class="radio-option">
-                <input type="radio" name="program" value="Tsanawiyah (SMP)" required>
-                Tsanawiyah (SMP)
-              </label>
-              <label class="radio-option">
-                <input type="radio" name="program" value="Aliyah (SMA)">
-                Aliyah (SMA)
-              </label>
-            </div>
-            <div class="error-msg" id="err-program">Program wajib dipilih.</div>
-          </div>
-
-          <div class="form-group">
-            <label>Ekstrakurikuler Diminati <span class="optional">(opsional)</span></label>
-            <div class="check-group">
-              <label class="check-option">
-                <input type="checkbox" name="ekskul" value="Pramuka">
-                Pramuka
-              </label>
-              <label class="check-option">
-                <input type="checkbox" name="ekskul" value="Kesenian">
-                Kesenian
-              </label>
-              <label class="check-option">
-                <input type="checkbox" name="ekskul" value="Olahraga">
-                Olahraga
-              </label>
-              <label class="check-option">
-                <input type="checkbox" name="ekskul" value="Tahfidz">
-                Tahfidz
-              </label>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="motivasi">Motivasi Masuk Pesantren <span class="optional">(opsional)</span></label>
-            <textarea id="motivasi" name="motivasi" class="form-control" placeholder="Ceritakan motivasi Anda masuk ke Pondok Pesantren Al-Falah" rows="3" maxlength="500"></textarea>
-            <div class="char-counter" id="motivasi-counter">0 / 500</div>
           </div>
 
         </div>
@@ -1291,7 +1230,6 @@
       });
     }
     setupCounter('alamat', 'alamat-counter', 400);
-    setupCounter('motivasi', 'motivasi-counter', 500);
 
     // ===== FILE UPLOAD =====
     function setupUpload(inputId, previewId, nameId) {
@@ -1382,12 +1320,6 @@
       setError(jenjang, document.getElementById('err-jenjang'), !validJenjang);
       if (!validJenjang) valid = false;
 
-      // Program
-      const program = document.querySelector('input[name="program"]:checked');
-      const progErr = document.getElementById('err-program');
-      if (!program) { progErr.style.display = 'block'; valid = false; }
-      else { progErr.style.display = 'none'; }
-
       // Nama ayah
       const ayah = document.getElementById('nama_ayah');
       const validAyah = ayah.value.trim().length >= 3;
@@ -1435,18 +1367,13 @@
         panggilan: document.getElementById('nama_panggilan').value.trim(),
         ttl: document.getElementById('tempat_lahir').value.trim() + ', ' + document.getElementById('tgl_lahir').value,
         jk: document.querySelector('input[name="jenis_kelamin"]:checked')?.value,
-        hp: document.getElementById('no_hp').value.trim() || '-',
         alamat: document.getElementById('alamat').value.trim(),
         sekolah: document.getElementById('asal_sekolah').value.trim() + ' (' + document.getElementById('tahun_lulus').value + ')',
         jenjang: document.getElementById('jenjang').value,
-        program: document.querySelector('input[name="program"]:checked')?.value,
         ayah: document.getElementById('nama_ayah').value.trim(),
         ibu: document.getElementById('nama_ibu').value.trim(),
         hpOrtu: document.getElementById('hp_ortu').value.trim(),
-        motivasi: document.getElementById('motivasi').value.trim(),
       };
-
-      const ekskul = Array.from(document.querySelectorAll('input[name="ekskul"]:checked')).map(el => el.value).join(', ') || '-';
 
       const pesan = `*FORMULIR PENDAFTARAN SANTRI BARU*
 Pondok Pesantren Al-Falah 2025/2026
@@ -1456,16 +1383,11 @@ Pondok Pesantren Al-Falah 2025/2026
 Nama Lengkap : ${data.nama}${data.panggilan ? ' (' + data.panggilan + ')' : ''}
 TTL : ${data.ttl}
 Jenis Kelamin : ${data.jk}
-No. HP : ${data.hp}
 Alamat : ${data.alamat}
 
 📚 *PENDIDIKAN*
 Asal Sekolah : ${data.sekolah}
 Jenjang : ${data.jenjang}
-
-🎯 *PROGRAM*
-Program Pilihan : ${data.program}
-Ekskul Diminati : ${ekskul}${data.motivasi ? '\nMotivasi : ' + data.motivasi : ''}
 
 👨‍👩‍👧 *DATA ORANG TUA*
 Ayah : ${data.ayah}
