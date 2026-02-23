@@ -984,7 +984,11 @@
             <div class="error-msg" id="err-alamat">Alamat wajib diisi.</div>
           </div>
 
-          <div class="form-row">
+          <div class="form-row triple">
+            <div class="form-group">
+              <label for="no_hp">No. HP Santri <span class="optional">(opsional)</span></label>
+              <input type="tel" id="no_hp" name="no_hp" class="form-control" placeholder="Nomor aktif WhatsApp">
+            </div>
             <div class="form-group">
               <label for="anak_ke">Anak ke- <span class="optional">(opsional)</span></label>
               <input type="number" id="anak_ke" name="anak_ke" class="form-control"
@@ -1045,6 +1049,63 @@
             <textarea id="pengalaman_pesantren" name="pengalaman_pesantren" class="form-control"
               placeholder="Jika pernah mondok di tempat lain, sebutkan nama pesantren dan berapa lama"
               rows="2" maxlength="300"></textarea>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- === BAGIAN 2.5: PROGRAM DAN KEGIATAN === -->
+      <div class="form-card fade-in">
+        <div class="form-card-header">
+          <div class="form-card-icon">🎯</div>
+          <div>
+            <h2>Program dan Kegiatan</h2>
+            <p>Pilih program pendidikan dan kegiatan ekstrakurikuler yang diminati</p>
+          </div>
+        </div>
+        <div class="form-card-body">
+
+          <div class="form-group">
+            <label>Program Pendidikan <span class="required">*</span></label>
+            <div class="radio-group">
+              <label class="radio-option">
+                <input type="radio" name="program" value="Tsanawiyah (SMP)" required>
+                Tsanawiyah (SMP)
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="program" value="Aliyah (SMA)">
+                Aliyah (SMA)
+              </label>
+            </div>
+            <div class="error-msg" id="err-program">Program wajib dipilih.</div>
+          </div>
+
+          <div class="form-group">
+            <label>Ekstrakurikuler Diminati <span class="optional">(opsional)</span></label>
+            <div class="check-group">
+              <label class="check-option">
+                <input type="checkbox" name="ekskul" value="Pramuka">
+                Pramuka
+              </label>
+              <label class="check-option">
+                <input type="checkbox" name="ekskul" value="Kesenian">
+                Kesenian
+              </label>
+              <label class="check-option">
+                <input type="checkbox" name="ekskul" value="Olahraga">
+                Olahraga
+              </label>
+              <label class="check-option">
+                <input type="checkbox" name="ekskul" value="Tahfidz">
+                Tahfidz
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="motivasi">Motivasi Masuk Pesantren <span class="optional">(opsional)</span></label>
+            <textarea id="motivasi" name="motivasi" class="form-control" placeholder="Ceritakan motivasi Anda masuk ke Pondok Pesantren Al-Falah" rows="3" maxlength="500"></textarea>
+            <div class="char-counter" id="motivasi-counter">0 / 500</div>
           </div>
 
         </div>
@@ -1297,12 +1358,6 @@
       if (!jk) { jkErr.style.display = 'block'; valid = false; }
       else { jkErr.style.display = 'none'; }
 
-      // HP
-      const hp = document.getElementById('no_hp');
-      const validHp = /^[0-9+]{9,15}$/.test(hp.value.trim());
-      setError(hp, document.getElementById('err-hp'), !validHp);
-      if (!validHp) valid = false;
-
       // Alamat
       const alamat = document.getElementById('alamat');
       const validAlamat = alamat.value.trim().length >= 10;
@@ -1380,7 +1435,7 @@
         panggilan: document.getElementById('nama_panggilan').value.trim(),
         ttl: document.getElementById('tempat_lahir').value.trim() + ', ' + document.getElementById('tgl_lahir').value,
         jk: document.querySelector('input[name="jenis_kelamin"]:checked')?.value,
-        hp: document.getElementById('no_hp').value.trim(),
+        hp: document.getElementById('no_hp').value.trim() || '-',
         alamat: document.getElementById('alamat').value.trim(),
         sekolah: document.getElementById('asal_sekolah').value.trim() + ' (' + document.getElementById('tahun_lulus').value + ')',
         jenjang: document.getElementById('jenjang').value,
