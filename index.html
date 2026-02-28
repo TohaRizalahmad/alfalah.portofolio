@@ -34,7 +34,7 @@
     img  { max-width: 100%; height: auto; display: block; }
 
     /* ──────────────────────────────────────────
-       HERO — Responsive heights
+       HERO — Mempertahankan proporsi desktop
     ────────────────────────────────────────── */
     .hero {
       width: 100%;
@@ -50,6 +50,17 @@
       object-position: center;
       display: block;
     }
+    
+    /* Alternatif: gunakan aspect ratio untuk konsistensi
+    .hero {
+      width: 100%;
+      aspect-ratio: 1920 / 280;
+      overflow: hidden;
+      position: relative;
+      background: var(--primary-dark);
+      max-height: 280px;
+    }
+    */
     .hero::before,
     .hero::after {
       content: '';
@@ -505,13 +516,10 @@
         grid-template-columns: 1fr 1fr; 
         gap: 32px; 
       }
-      .hero { height: 200px; }
     }
 
     /* Tablet portrait */
     @media (max-width: 768px) {
-      .hero { height: 180px; }
-      
       .informasi-section, 
       .unit-section, 
       .formal-section, 
@@ -550,8 +558,6 @@
 
     /* Large phones */
     @media (max-width: 640px) {
-      .hero { height: 150px; }
-      
       .informasi-section, 
       .unit-section, 
       .formal-section { 
@@ -600,8 +606,6 @@
 
     /* Small phones */
     @media (max-width: 480px) {
-      .hero { height: 130px; }
-      
       .sec-head {
         margin-bottom: 30px;
       }
@@ -677,8 +681,6 @@
     
     /* Extra small phones */
     @media (max-width: 360px) {
-      .hero { height: 110px; }
-      
       .formal-card img {
         height: 180px;
       }
@@ -902,4 +904,4 @@
     document.getElementById('copy-year').textContent = new Date().getFullYear();
   </script>
 </body>
-</html>
+</html>c
