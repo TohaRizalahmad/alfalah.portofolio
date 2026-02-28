@@ -1049,270 +1049,280 @@
       </ul>
     </div>
 
+    <!-- Google Forms Embed -->
+    <div class="form-card fade-in" style="padding-top: 10px;">
+      <iframe
+        src="https://docs.google.com/forms/d/e/1FAIpQLSckROUm8l0ogg_MajgJ_p8rREKw6tFoBSB6ddJ4Zjrp2phl7g/viewform?embedded=true"
+        width="100%" height="2500" frameborder="0" marginheight="0" marginwidth="0">Memuat…</iframe>
+    </div>
+
     <!-- Form -->
-    <form id="registrationForm" novalidate>
+    <div style="display: none;">
+      <form id="registrationForm" novalidate>
 
-      <!-- === BAGIAN 1: DATA DIRI SANTRI === -->
-      <div class="form-card fade-in">
-        <div class="form-card-header">
-          <div class="form-card-icon">👤</div>
-          <div>
-            <h2>Data Diri Calon Santri</h2>
-            <p>Lengkapi identitas pribadi dengan benar sesuai dokumen resmi</p>
+        <!-- === BAGIAN 1: DATA DIRI SANTRI === -->
+        <div class="form-card fade-in">
+          <div class="form-card-header">
+            <div class="form-card-icon">👤</div>
+            <div>
+              <h2>Data Diri Calon Santri</h2>
+              <p>Lengkapi identitas pribadi dengan benar sesuai dokumen resmi</p>
+            </div>
+          </div>
+          <div class="form-card-body">
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="nama_lengkap">Nama Lengkap <span class="required">*</span></label>
+                <input type="text" id="nama_lengkap" name="nama_lengkap" class="form-control"
+                  placeholder="Tulis nama lengkap sesuai akta" required autocomplete="name">
+                <div class="error-msg" id="err-nama">Nama lengkap wajib diisi.</div>
+              </div>
+              <div class="form-group">
+                <label for="nama_panggilan">Nama Panggilan <span class="optional">(opsional)</span></label>
+                <input type="text" id="nama_panggilan" name="nama_panggilan" class="form-control"
+                  placeholder="Nama yang biasa dipanggil">
+              </div>
+            </div>
+
+            <div class="form-row triple">
+              <div class="form-group">
+                <label for="tempat_lahir">Tempat Lahir <span class="required">*</span></label>
+                <input type="text" id="tempat_lahir" name="tempat_lahir" class="form-control"
+                  placeholder="Kota/Kabupaten" required>
+                <div class="error-msg" id="err-tmplahir">Tempat lahir wajib diisi.</div>
+              </div>
+              <div class="form-group">
+                <label for="tgl_lahir">Tanggal Lahir <span class="required">*</span></label>
+                <input type="date" id="tgl_lahir" name="tgl_lahir" class="form-control" required>
+                <div class="error-msg" id="err-tgllahir">Tanggal lahir wajib diisi.</div>
+              </div>
+              <div class="form-group">
+                <label for="nik">NIK (No. KTP/KK) <span class="optional">(opsional)</span></label>
+                <input type="text" id="nik" name="nik" class="form-control" placeholder="16 digit" maxlength="16"
+                  pattern="\d{16}">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Jenis Kelamin <span class="required">*</span></label>
+              <div class="radio-group">
+                <label class="radio-option">
+                  <input type="radio" name="jenis_kelamin" value="Laki-laki" required>
+                  Laki-laki
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="jenis_kelamin" value="Perempuan">
+                  Perempuan
+                </label>
+              </div>
+              <div class="error-msg" id="err-jk">Jenis kelamin wajib dipilih.</div>
+            </div>
+
+            <div class="form-group">
+              <label for="alamat">Alamat Lengkap <span class="required">*</span></label>
+              <textarea id="alamat" name="alamat" class="form-control"
+                placeholder="Tulis alamat lengkap: Jalan, RT/RW, Desa/Kelurahan, Kecamatan, Kabupaten, Provinsi"
+                required rows="3" maxlength="400"></textarea>
+              <div class="char-counter" id="alamat-counter">0 / 400</div>
+              <div class="error-msg" id="err-alamat">Alamat wajib diisi.</div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="anak_ke">Anak ke- <span class="optional">(opsional)</span></label>
+                <input type="number" id="anak_ke" name="anak_ke" class="form-control" placeholder="misal: 2" min="1"
+                  max="20">
+              </div>
+              <div class="form-group">
+                <label for="penyakit">Riwayat Penyakit / Alergi <span class="optional">(opsional)</span></label>
+                <input type="text" id="penyakit" name="penyakit" class="form-control"
+                  placeholder="Tulis jika ada, misal: Asma, Alergi seafood">
+              </div>
+            </div>
+
           </div>
         </div>
-        <div class="form-card-body">
 
-          <div class="form-row">
-            <div class="form-group">
-              <label for="nama_lengkap">Nama Lengkap <span class="required">*</span></label>
-              <input type="text" id="nama_lengkap" name="nama_lengkap" class="form-control"
-                placeholder="Tulis nama lengkap sesuai akta" required autocomplete="name">
-              <div class="error-msg" id="err-nama">Nama lengkap wajib diisi.</div>
-            </div>
-            <div class="form-group">
-              <label for="nama_panggilan">Nama Panggilan <span class="optional">(opsional)</span></label>
-              <input type="text" id="nama_panggilan" name="nama_panggilan" class="form-control"
-                placeholder="Nama yang biasa dipanggil">
+        <!-- === BAGIAN 2: DATA PENDIDIKAN === -->
+        <div class="form-card fade-in">
+          <div class="form-card-header">
+            <div class="form-card-icon">🎓</div>
+            <div>
+              <h2>Riwayat Pendidikan</h2>
+              <p>Informasi latar belakang pendidikan sebelumnya</p>
             </div>
           </div>
+          <div class="form-card-body">
 
-          <div class="form-row triple">
-            <div class="form-group">
-              <label for="tempat_lahir">Tempat Lahir <span class="required">*</span></label>
-              <input type="text" id="tempat_lahir" name="tempat_lahir" class="form-control" placeholder="Kota/Kabupaten"
-                required>
-              <div class="error-msg" id="err-tmplahir">Tempat lahir wajib diisi.</div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="asal_sekolah">Asal Sekolah Terakhir <span class="required">*</span></label>
+                <input type="text" id="asal_sekolah" name="asal_sekolah" class="form-control"
+                  placeholder="Nama sekolah, misal: SDN 1 Rumbia" required>
+                <div class="error-msg" id="err-sekolah">Asal sekolah wajib diisi.</div>
+              </div>
+              <div class="form-group">
+                <label for="tahun_lulus">Tahun Lulus / Keluar <span class="required">*</span></label>
+                <select id="tahun_lulus" name="tahun_lulus" class="form-control" required>
+                  <option value="">-- Pilih Tahun --</option>
+                </select>
+                <div class="error-msg" id="err-tahunlulus">Tahun lulus wajib dipilih.</div>
+              </div>
             </div>
-            <div class="form-group">
-              <label for="tgl_lahir">Tanggal Lahir <span class="required">*</span></label>
-              <input type="date" id="tgl_lahir" name="tgl_lahir" class="form-control" required>
-              <div class="error-msg" id="err-tgllahir">Tanggal lahir wajib diisi.</div>
-            </div>
-            <div class="form-group">
-              <label for="nik">NIK (No. KTP/KK) <span class="optional">(opsional)</span></label>
-              <input type="text" id="nik" name="nik" class="form-control" placeholder="16 digit" maxlength="16"
-                pattern="\d{16}">
-            </div>
-          </div>
 
-          <div class="form-group">
-            <label>Jenis Kelamin <span class="required">*</span></label>
-            <div class="radio-group">
-              <label class="radio-option">
-                <input type="radio" name="jenis_kelamin" value="Laki-laki" required>
-                Laki-laki
-              </label>
-              <label class="radio-option">
-                <input type="radio" name="jenis_kelamin" value="Perempuan">
-                Perempuan
-              </label>
-            </div>
-            <div class="error-msg" id="err-jk">Jenis kelamin wajib dipilih.</div>
-          </div>
-
-          <div class="form-group">
-            <label for="alamat">Alamat Lengkap <span class="required">*</span></label>
-            <textarea id="alamat" name="alamat" class="form-control"
-              placeholder="Tulis alamat lengkap: Jalan, RT/RW, Desa/Kelurahan, Kecamatan, Kabupaten, Provinsi" required
-              rows="3" maxlength="400"></textarea>
-            <div class="char-counter" id="alamat-counter">0 / 400</div>
-            <div class="error-msg" id="err-alamat">Alamat wajib diisi.</div>
-          </div>
-
-          <div class="form-row">
             <div class="form-group">
-              <label for="anak_ke">Anak ke- <span class="optional">(opsional)</span></label>
-              <input type="number" id="anak_ke" name="anak_ke" class="form-control" placeholder="misal: 2" min="1"
-                max="20">
-            </div>
-            <div class="form-group">
-              <label for="penyakit">Riwayat Penyakit / Alergi <span class="optional">(opsional)</span></label>
-              <input type="text" id="penyakit" name="penyakit" class="form-control"
-                placeholder="Tulis jika ada, misal: Asma, Alergi seafood">
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- === BAGIAN 2: DATA PENDIDIKAN === -->
-      <div class="form-card fade-in">
-        <div class="form-card-header">
-          <div class="form-card-icon">🎓</div>
-          <div>
-            <h2>Riwayat Pendidikan</h2>
-            <p>Informasi latar belakang pendidikan sebelumnya</p>
-          </div>
-        </div>
-        <div class="form-card-body">
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="asal_sekolah">Asal Sekolah Terakhir <span class="required">*</span></label>
-              <input type="text" id="asal_sekolah" name="asal_sekolah" class="form-control"
-                placeholder="Nama sekolah, misal: SDN 1 Rumbia" required>
-              <div class="error-msg" id="err-sekolah">Asal sekolah wajib diisi.</div>
-            </div>
-            <div class="form-group">
-              <label for="tahun_lulus">Tahun Lulus / Keluar <span class="required">*</span></label>
-              <select id="tahun_lulus" name="tahun_lulus" class="form-control" required>
-                <option value="">-- Pilih Tahun --</option>
+              <label for="jenjang">Jenjang Pendidikan Terakhir <span class="required">*</span></label>
+              <select id="jenjang" name="jenjang" class="form-control" required>
+                <option value="">-- Pilih Jenjang --</option>
+                <option>SD / Sederajat</option>
+                <option>SMP / MTs / Sederajat</option>
+                <option>SMA / MA / SMK / Sederajat</option>
+                <option>Perguruan Tinggi</option>
+                <option>Belum pernah sekolah formal</option>
               </select>
-              <div class="error-msg" id="err-tahunlulus">Tahun lulus wajib dipilih.</div>
+              <div class="error-msg" id="err-jenjang">Jenjang pendidikan wajib dipilih.</div>
             </div>
-          </div>
 
-          <div class="form-group">
-            <label for="jenjang">Jenjang Pendidikan Terakhir <span class="required">*</span></label>
-            <select id="jenjang" name="jenjang" class="form-control" required>
-              <option value="">-- Pilih Jenjang --</option>
-              <option>SD / Sederajat</option>
-              <option>SMP / MTs / Sederajat</option>
-              <option>SMA / MA / SMK / Sederajat</option>
-              <option>Perguruan Tinggi</option>
-              <option>Belum pernah sekolah formal</option>
-            </select>
-            <div class="error-msg" id="err-jenjang">Jenjang pendidikan wajib dipilih.</div>
-          </div>
+            <div class="form-group">
+              <label for="pengalaman_pesantren">Pengalaman Pesantren Sebelumnya <span
+                  class="optional">(opsional)</span></label>
+              <textarea id="pengalaman_pesantren" name="pengalaman_pesantren" class="form-control"
+                placeholder="Jika pernah mondok di tempat lain, sebutkan nama pesantren dan berapa lama" rows="2"
+                maxlength="300"></textarea>
+            </div>
 
-          <div class="form-group">
-            <label for="pengalaman_pesantren">Pengalaman Pesantren Sebelumnya <span
-                class="optional">(opsional)</span></label>
-            <textarea id="pengalaman_pesantren" name="pengalaman_pesantren" class="form-control"
-              placeholder="Jika pernah mondok di tempat lain, sebutkan nama pesantren dan berapa lama" rows="2"
-              maxlength="300"></textarea>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- === BAGIAN 3: DATA ORANG TUA === -->
-      <div class="form-card fade-in">
-        <div class="form-card-header">
-          <div class="form-card-icon">👨‍👩‍👧</div>
-          <div>
-            <h2>Data Orang Tua / Wali</h2>
-            <p>Informasi untuk keperluan administrasi dan komunikasi</p>
           </div>
         </div>
-        <div class="form-card-body">
 
-          <div class="form-row">
-            <div class="form-group">
-              <label for="nama_ayah">Nama Ayah <span class="required">*</span></label>
-              <input type="text" id="nama_ayah" name="nama_ayah" class="form-control" placeholder="Nama lengkap ayah"
-                required>
-              <div class="error-msg" id="err-ayah">Nama ayah wajib diisi.</div>
-            </div>
-            <div class="form-group">
-              <label for="pekerjaan_ayah">Pekerjaan Ayah</label>
-              <input type="text" id="pekerjaan_ayah" name="pekerjaan_ayah" class="form-control"
-                placeholder="misal: Petani, Wiraswasta">
+        <!-- === BAGIAN 3: DATA ORANG TUA === -->
+        <div class="form-card fade-in">
+          <div class="form-card-header">
+            <div class="form-card-icon">👨‍👩‍👧</div>
+            <div>
+              <h2>Data Orang Tua / Wali</h2>
+              <p>Informasi untuk keperluan administrasi dan komunikasi</p>
             </div>
           </div>
+          <div class="form-card-body">
 
-          <div class="form-row">
-            <div class="form-group">
-              <label for="nama_ibu">Nama Ibu <span class="required">*</span></label>
-              <input type="text" id="nama_ibu" name="nama_ibu" class="form-control" placeholder="Nama lengkap ibu"
-                required>
-              <div class="error-msg" id="err-ibu">Nama ibu wajib diisi.</div>
-            </div>
-            <div class="form-group">
-              <label for="pekerjaan_ibu">Pekerjaan Ibu</label>
-              <input type="text" id="pekerjaan_ibu" name="pekerjaan_ibu" class="form-control"
-                placeholder="misal: Ibu Rumah Tangga, Guru">
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="hp_ortu">No. HP Orang Tua / Wali <span class="required">*</span></label>
-              <input type="tel" id="hp_ortu" name="hp_ortu" class="form-control" placeholder="Nomor aktif WhatsApp"
-                required>
-              <div class="error-msg" id="err-hportu">No. HP orang tua wajib diisi.</div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- === BAGIAN 4: UNGGAH DOKUMEN === -->
-      <div class="form-card fade-in">
-        <div class="form-card-header">
-          <div class="form-card-icon">📎</div>
-          <div>
-            <h2>Unggah Dokumen</h2>
-            <p>Format JPG, PNG, atau PDF. Maksimal 2MB per file.</p>
-          </div>
-        </div>
-        <div class="form-card-body">
-
-          <div class="form-row">
-            <div class="form-group">
-              <label>Foto Diri (3×4) <span class="optional">(opsional)</span></label>
-              <div class="upload-area" id="upload-foto">
-                <input type="file" name="foto_diri" accept="image/*" id="input-foto">
-                <div class="upload-icon">📷</div>
-                <p>Klik atau seret file ke sini</p>
-                <span>JPG / PNG, maks 2MB</span>
-                <div class="upload-preview" id="prev-foto">✅ <span id="prev-foto-name"></span></div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="nama_ayah">Nama Ayah <span class="required">*</span></label>
+                <input type="text" id="nama_ayah" name="nama_ayah" class="form-control" placeholder="Nama lengkap ayah"
+                  required>
+                <div class="error-msg" id="err-ayah">Nama ayah wajib diisi.</div>
+              </div>
+              <div class="form-group">
+                <label for="pekerjaan_ayah">Pekerjaan Ayah</label>
+                <input type="text" id="pekerjaan_ayah" name="pekerjaan_ayah" class="form-control"
+                  placeholder="misal: Petani, Wiraswasta">
               </div>
             </div>
-            <div class="form-group">
-              <label>Kartu Keluarga (KK) <span class="optional">(opsional)</span></label>
-              <div class="upload-area" id="upload-kk">
-                <input type="file" name="kartu_keluarga" accept="image/*,application/pdf" id="input-kk">
-                <div class="upload-icon">🏠</div>
-                <p>Klik atau seret file ke sini</p>
-                <span>JPG / PNG / PDF, maks 2MB</span>
-                <div class="upload-preview" id="prev-kk">✅ <span id="prev-kk-name"></span></div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="nama_ibu">Nama Ibu <span class="required">*</span></label>
+                <input type="text" id="nama_ibu" name="nama_ibu" class="form-control" placeholder="Nama lengkap ibu"
+                  required>
+                <div class="error-msg" id="err-ibu">Nama ibu wajib diisi.</div>
               </div>
+              <div class="form-group">
+                <label for="pekerjaan_ibu">Pekerjaan Ibu</label>
+                <input type="text" id="pekerjaan_ibu" name="pekerjaan_ibu" class="form-control"
+                  placeholder="misal: Ibu Rumah Tangga, Guru">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="hp_ortu">No. HP Orang Tua / Wali <span class="required">*</span></label>
+                <input type="tel" id="hp_ortu" name="hp_ortu" class="form-control" placeholder="Nomor aktif WhatsApp"
+                  required>
+                <div class="error-msg" id="err-hportu">No. HP orang tua wajib diisi.</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- === BAGIAN 4: UNGGAH DOKUMEN === -->
+        <div class="form-card fade-in">
+          <div class="form-card-header">
+            <div class="form-card-icon">📎</div>
+            <div>
+              <h2>Unggah Dokumen</h2>
+              <p>Format JPG, PNG, atau PDF. Maksimal 2MB per file.</p>
             </div>
           </div>
+          <div class="form-card-body">
 
-          <div class="form-row">
-            <div class="form-group">
-              <label>Ijazah / SKHUN <span class="optional">(opsional)</span></label>
-              <div class="upload-area" id="upload-ijazah">
-                <input type="file" name="ijazah" accept="image/*,application/pdf" id="input-ijazah">
-                <div class="upload-icon">🎓</div>
-                <p>Klik atau seret file ke sini</p>
-                <span>JPG / PNG / PDF, maks 2MB</span>
-                <div class="upload-preview" id="prev-ijazah">✅ <span id="prev-ijazah-name"></span></div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Foto Diri (3×4) <span class="optional">(opsional)</span></label>
+                <div class="upload-area" id="upload-foto">
+                  <input type="file" name="foto_diri" accept="image/*" id="input-foto">
+                  <div class="upload-icon">📷</div>
+                  <p>Klik atau seret file ke sini</p>
+                  <span>JPG / PNG, maks 2MB</span>
+                  <div class="upload-preview" id="prev-foto">✅ <span id="prev-foto-name"></span></div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Kartu Keluarga (KK) <span class="optional">(opsional)</span></label>
+                <div class="upload-area" id="upload-kk">
+                  <input type="file" name="kartu_keluarga" accept="image/*,application/pdf" id="input-kk">
+                  <div class="upload-icon">🏠</div>
+                  <p>Klik atau seret file ke sini</p>
+                  <span>JPG / PNG / PDF, maks 2MB</span>
+                  <div class="upload-preview" id="prev-kk">✅ <span id="prev-kk-name"></span></div>
+                </div>
               </div>
             </div>
-            <div class="form-group">
-              <label>Surat Keterangan Sehat <span class="optional">(opsional)</span></label>
-              <div class="upload-area" id="upload-sehat">
-                <input type="file" name="surat_sehat" accept="image/*,application/pdf" id="input-sehat">
-                <div class="upload-icon">🏥</div>
-                <p>Klik atau seret file ke sini</p>
-                <span>JPG / PNG / PDF, maks 2MB</span>
-                <div class="upload-preview" id="prev-sehat">✅ <span id="prev-sehat-name"></span></div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Ijazah / SKHUN <span class="optional">(opsional)</span></label>
+                <div class="upload-area" id="upload-ijazah">
+                  <input type="file" name="ijazah" accept="image/*,application/pdf" id="input-ijazah">
+                  <div class="upload-icon">🎓</div>
+                  <p>Klik atau seret file ke sini</p>
+                  <span>JPG / PNG / PDF, maks 2MB</span>
+                  <div class="upload-preview" id="prev-ijazah">✅ <span id="prev-ijazah-name"></span></div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Surat Keterangan Sehat <span class="optional">(opsional)</span></label>
+                <div class="upload-area" id="upload-sehat">
+                  <input type="file" name="surat_sehat" accept="image/*,application/pdf" id="input-sehat">
+                  <div class="upload-icon">🏥</div>
+                  <p>Klik atau seret file ke sini</p>
+                  <span>JPG / PNG / PDF, maks 2MB</span>
+                  <div class="upload-preview" id="prev-sehat">✅ <span id="prev-sehat-name"></span></div>
+                </div>
               </div>
             </div>
+
           </div>
-
         </div>
-      </div>
 
-      <!-- === SUBMIT === -->
-      <div class="submit-section fade-in">
-        <h3>Siap untuk Mendaftar? 🎉</h3>
-        <p>Pastikan semua data sudah terisi dengan benar. Formulir akan dikirim langsung ke WhatsApp pondok untuk proses
-          verifikasi.</p>
-        <div class="submit-btns">
-          <button type="submit" class="btn-submit" id="btnSubmit">
-            <span class="btn-text">📤 Kirim Pendaftaran</span>
-            <span class="spinner"></span>
-          </button>
-          <button type="button" class="btn-outline" id="btnReset">🔄 Reset Formulir</button>
+        <!-- === SUBMIT === -->
+        <div class="submit-section fade-in">
+          <h3>Siap untuk Mendaftar? 🎉</h3>
+          <p>Pastikan semua data sudah terisi dengan benar. Formulir akan dikirim langsung ke WhatsApp pondok untuk
+            proses
+            verifikasi.</p>
+          <div class="submit-btns">
+            <button type="submit" class="btn-submit" id="btnSubmit">
+              <span class="btn-text">📤 Kirim Pendaftaran</span>
+              <span class="spinner"></span>
+            </button>
+            <button type="button" class="btn-outline" id="btnReset">🔄 Reset Formulir</button>
+          </div>
         </div>
-      </div>
 
-    </form>
+      </form>
+    </div>
   </main>
 
   <!-- ========== FOOTER ========== -->
