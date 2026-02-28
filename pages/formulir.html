@@ -1,21 +1,28 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Formulir Pendaftaran - Pondok Pesantren Al-Falah</title>
   <link rel="icon" type="image/png" href="../img/Properti Utama/Logo Browser.png">
-  <meta name="description" content="Formulir Pendaftaran Santri Baru Pondok Pesantren Al-Falah Teluk Dalem Ilir Rumbia Lampung Tengah.">
+  <meta name="description"
+    content="Formulir Pendaftaran Santri Baru Pondok Pesantren Al-Falah Teluk Dalem Ilir Rumbia Lampung Tengah.">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Berkshire+Swash&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Berkshire+Swash&display=swap"
+    rel="stylesheet">
 
   <style>
     /* ========== RESET & BASE ========== */
-    *, *::before, *::after {
-      margin: 0; padding: 0;
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
 
@@ -24,15 +31,18 @@
       --primary-dark: #1a2e2b;
       --secondary: #FFFCEF;
       --accent: #D4AF37;
-      --accent-light: rgba(212,175,55,0.15);
+      --accent-light: rgba(212, 175, 55, 0.15);
       --text-dark: #2d2d2d;
       --text-light: #fff;
-      --border: rgba(212,175,55,0.3);
+      --border: rgba(212, 175, 55, 0.3);
       --transition: 0.3s ease;
-      --shadow: 0 8px 30px rgba(0,0,0,0.12);
+      --shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
     }
 
-    html { scroll-behavior: smooth; overflow-x: hidden; }
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
 
     body {
       font-family: 'Poppins', sans-serif;
@@ -45,12 +55,13 @@
     /* ========== NAVBAR ========== */
     .navbar {
       position: fixed;
-      top: 0; left: 0;
+      top: 0;
+      left: 0;
       width: 100%;
       background: var(--primary);
       padding: 15px 8%;
       z-index: 9999;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       transition: var(--transition);
     }
 
@@ -67,7 +78,10 @@
       margin: 0 auto;
     }
 
-    .nav-logo { height: 50px; width: auto; }
+    .nav-logo {
+      height: 50px;
+      width: auto;
+    }
 
     .home-btn {
       display: inline-block;
@@ -78,13 +92,13 @@
       font-weight: 600;
       border-radius: 50px;
       transition: var(--transition);
-      box-shadow: 0 2px 10px rgba(212,175,55,0.3);
+      box-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
       font-size: 20px;
     }
 
     .home-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(212,175,55,0.5);
+      box-shadow: 0 5px 15px rgba(212, 175, 55, 0.5);
     }
 
     /* ========== PAGE HERO ========== */
@@ -101,8 +115,8 @@
       position: absolute;
       inset: 0;
       background-image:
-        radial-gradient(circle at 20% 50%, rgba(212,175,55,0.08) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(212,175,55,0.06) 0%, transparent 40%);
+        radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.06) 0%, transparent 40%);
     }
 
     /* decorative arabic pattern */
@@ -110,13 +124,17 @@
       content: '✦';
       position: absolute;
       font-size: 300px;
-      color: rgba(212,175,55,0.04);
-      top: -50px; right: -30px;
+      color: rgba(212, 175, 55, 0.04);
+      top: -50px;
+      right: -30px;
       line-height: 1;
       pointer-events: none;
     }
 
-    .page-hero-inner { position: relative; z-index: 1; }
+    .page-hero-inner {
+      position: relative;
+      z-index: 1;
+    }
 
     .page-hero-badge {
       display: inline-block;
@@ -137,12 +155,12 @@
       font-size: 48px;
       color: var(--text-light);
       margin-bottom: 15px;
-      text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
     }
 
     .page-hero p {
       font-size: 17px;
-      color: rgba(255,255,255,0.85);
+      color: rgba(255, 255, 255, 0.85);
       max-width: 600px;
       margin: 0 auto 30px;
       line-height: 1.8;
@@ -160,16 +178,17 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
       padding: 10px 20px;
       border-radius: 50px;
-      color: rgba(255,255,255,0.9);
+      color: rgba(255, 255, 255, 0.9);
       font-size: 14px;
     }
 
     .hero-step-num {
-      width: 24px; height: 24px;
+      width: 24px;
+      height: 24px;
       background: var(--accent);
       color: var(--primary-dark);
       border-radius: 50%;
@@ -206,7 +225,8 @@
     }
 
     .form-card-icon {
-      width: 44px; height: 44px;
+      width: 44px;
+      height: 44px;
       background: var(--accent-light);
       border: 2px solid var(--accent);
       border-radius: 12px;
@@ -225,7 +245,7 @@
 
     .form-card-header p {
       font-size: 13px;
-      color: rgba(255,255,255,0.7);
+      color: rgba(255, 255, 255, 0.7);
       margin-top: 2px;
     }
 
@@ -289,7 +309,7 @@
     .form-control:focus {
       border-color: var(--accent);
       background: #fff;
-      box-shadow: 0 0 0 4px rgba(212,175,55,0.1);
+      box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1);
     }
 
     .form-control:valid:not(:placeholder-shown) {
@@ -328,14 +348,16 @@
     }
 
     /* ========== RADIO & CHECKBOX ========== */
-    .radio-group, .check-group {
+    .radio-group,
+    .check-group {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
       margin-top: 5px;
     }
 
-    .radio-option, .check-option {
+    .radio-option,
+    .check-option {
       display: flex;
       align-items: center;
       gap: 8px;
@@ -348,17 +370,21 @@
       user-select: none;
     }
 
-    .radio-option:hover, .check-option:hover {
+    .radio-option:hover,
+    .check-option:hover {
       border-color: var(--accent);
       background: var(--accent-light);
     }
 
-    .radio-option input, .check-option input {
+    .radio-option input,
+    .check-option input {
       accent-color: var(--accent);
-      width: 16px; height: 16px;
+      width: 16px;
+      height: 16px;
     }
 
-    .radio-option:has(input:checked), .check-option:has(input:checked) {
+    .radio-option:has(input:checked),
+    .check-option:has(input:checked) {
       border-color: var(--accent);
       background: var(--accent-light);
     }
@@ -375,7 +401,8 @@
       position: relative;
     }
 
-    .upload-area:hover, .upload-area.dragover {
+    .upload-area:hover,
+    .upload-area.dragover {
       border-color: var(--accent);
       background: var(--accent-light);
     }
@@ -389,7 +416,10 @@
       height: 100%;
     }
 
-    .upload-icon { font-size: 36px; margin-bottom: 10px; }
+    .upload-icon {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
 
     .upload-area p {
       font-size: 14px;
@@ -448,15 +478,28 @@
       background: var(--accent-light);
     }
 
-    .program-option input:checked + .program-label {
+    .program-option input:checked+.program-label {
       border-color: var(--accent);
       background: var(--accent-light);
-      box-shadow: 0 0 0 3px rgba(212,175,55,0.15);
+      box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
     }
 
-    .program-label .prog-icon { font-size: 30px; margin-bottom: 8px; }
-    .program-label .prog-name { font-size: 14px; font-weight: 600; color: var(--primary); }
-    .program-label .prog-desc { font-size: 12px; color: #777; margin-top: 4px; }
+    .program-label .prog-icon {
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+
+    .program-label .prog-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .program-label .prog-desc {
+      font-size: 12px;
+      color: #777;
+      margin-top: 4px;
+    }
 
     /* ========== DIVIDER ========== */
     .form-divider {
@@ -506,10 +549,13 @@
       transition: var(--transition);
     }
 
-    .progress-step.done:not(:last-child)::after { background: var(--accent); }
+    .progress-step.done:not(:last-child)::after {
+      background: var(--accent);
+    }
 
     .step-circle {
-      width: 36px; height: 36px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
       background: #e8e8e8;
       display: flex;
@@ -541,7 +587,9 @@
     }
 
     .progress-step.active .step-label,
-    .progress-step.done .step-label { color: var(--primary); }
+    .progress-step.done .step-label {
+      color: var(--primary);
+    }
 
     /* ========== SUBMIT SECTION ========== */
     .submit-section {
@@ -558,10 +606,13 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at 80% 50%, rgba(212,175,55,0.1) 0%, transparent 60%);
+      background: radial-gradient(circle at 80% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 60%);
     }
 
-    .submit-section > * { position: relative; z-index: 1; }
+    .submit-section>* {
+      position: relative;
+      z-index: 1;
+    }
 
     .submit-section h3 {
       font-size: 22px;
@@ -572,7 +623,7 @@
 
     .submit-section p {
       font-size: 15px;
-      color: rgba(255,255,255,0.8);
+      color: rgba(255, 255, 255, 0.8);
       margin-bottom: 25px;
     }
 
@@ -598,15 +649,17 @@
       cursor: pointer;
       transition: var(--transition);
       text-decoration: none;
-      box-shadow: 0 5px 20px rgba(212,175,55,0.3);
+      box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
     }
 
     .btn-submit:hover {
       transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(212,175,55,0.5);
+      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
     }
 
-    .btn-submit:active { transform: translateY(0); }
+    .btn-submit:active {
+      transform: translateY(0);
+    }
 
     .btn-outline {
       display: inline-flex;
@@ -615,7 +668,7 @@
       padding: 15px 35px;
       background: transparent;
       color: var(--text-light);
-      border: 2px solid rgba(255,255,255,0.3);
+      border: 2px solid rgba(255, 255, 255, 0.3);
       border-radius: 50px;
       font-family: 'Poppins', sans-serif;
       font-size: 15px;
@@ -677,7 +730,7 @@
     .modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.7);
+      background: rgba(0, 0, 0, 0.7);
       z-index: 99999;
       display: flex;
       align-items: center;
@@ -704,10 +757,13 @@
       transition: var(--transition);
     }
 
-    .modal-overlay.open .modal-box { transform: scale(1); }
+    .modal-overlay.open .modal-box {
+      transform: scale(1);
+    }
 
     .modal-icon {
-      width: 80px; height: 80px;
+      width: 80px;
+      height: 80px;
       background: linear-gradient(135deg, var(--primary), #3a5f58);
       border-radius: 50%;
       display: flex;
@@ -715,7 +771,7 @@
       justify-content: center;
       font-size: 36px;
       margin: 0 auto 25px;
-      box-shadow: 0 10px 30px rgba(40,68,63,0.3);
+      box-shadow: 0 10px 30px rgba(40, 68, 63, 0.3);
     }
 
     .modal-box h3 {
@@ -756,12 +812,14 @@
       transition: var(--transition);
     }
 
-    .modal-close:hover { transform: translateY(-2px); }
+    .modal-close:hover {
+      transform: translateY(-2px);
+    }
 
     /* ========== FOOTER ========== */
     .footer {
       background: var(--primary-dark);
-      color: rgba(255,255,255,0.7);
+      color: rgba(255, 255, 255, 0.7);
       text-align: center;
       padding: 30px 20px;
       font-size: 14px;
@@ -777,21 +835,25 @@
       position: fixed;
       bottom: 30px;
       right: 30px;
-      width: 58px; height: 58px;
+      width: 58px;
+      height: 58px;
       background: #25D366;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 5px 20px rgba(37,211,102,0.4);
+      box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
       transition: var(--transition);
       z-index: 1000;
     }
 
-    .wa-float:hover { transform: translateY(-5px) scale(1.05); }
+    .wa-float:hover {
+      transform: translateY(-5px) scale(1.05);
+    }
 
     .wa-float .icon {
-      width: 28px; height: 28px;
+      width: 28px;
+      height: 28px;
       background-image: url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg');
       background-size: contain;
       background-position: center;
@@ -801,57 +863,121 @@
 
     /* ========== RESPONSIVE ========== */
     @media (max-width: 768px) {
-      .page-hero h1 { font-size: 32px; }
-      .page-hero { padding: 120px 6% 60px; }
+      .page-hero h1 {
+        font-size: 32px;
+      }
 
-      .form-row { grid-template-columns: 1fr; }
-      .form-row.triple { grid-template-columns: 1fr; }
-      .form-card-body { padding: 25px 20px; }
-      .form-card-header { padding: 20px 25px; }
+      .page-hero {
+        padding: 120px 6% 60px;
+      }
 
-      .progress-steps { overflow-x: auto; gap: 5px; }
-      .step-label { font-size: 10px; }
+      .form-row {
+        grid-template-columns: 1fr;
+      }
 
-      .submit-section { padding: 30px 20px; }
-      .submit-btns { flex-direction: column; align-items: center; }
+      .form-row.triple {
+        grid-template-columns: 1fr;
+      }
 
-      .hero-steps { flex-direction: column; align-items: center; }
+      .form-card-body {
+        padding: 25px 20px;
+      }
+
+      .form-card-header {
+        padding: 20px 25px;
+      }
+
+      .progress-steps {
+        overflow-x: auto;
+        gap: 5px;
+      }
+
+      .step-label {
+        font-size: 10px;
+      }
+
+      .submit-section {
+        padding: 30px 20px;
+      }
+
+      .submit-btns {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero-steps {
+        flex-direction: column;
+        align-items: center;
+      }
     }
 
     @media (max-width: 480px) {
-      .main-content { padding: 90px 15px 60px; }
-      .program-selector { grid-template-columns: 1fr 1fr; }
+      .main-content {
+        padding: 90px 15px 60px;
+      }
+
+      .program-selector {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
     /* ========== ANIMATIONS ========== */
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .fade-in {
       animation: fadeInUp 0.6s ease forwards;
     }
 
-    .fade-in:nth-child(2) { animation-delay: 0.1s; }
-    .fade-in:nth-child(3) { animation-delay: 0.2s; }
-    .fade-in:nth-child(4) { animation-delay: 0.3s; }
+    .fade-in:nth-child(2) {
+      animation-delay: 0.1s;
+    }
+
+    .fade-in:nth-child(3) {
+      animation-delay: 0.2s;
+    }
+
+    .fade-in:nth-child(4) {
+      animation-delay: 0.3s;
+    }
 
     /* Loading spinner */
     .spinner {
       display: inline-block;
-      width: 18px; height: 18px;
-      border: 2px solid rgba(40,68,63,0.3);
+      width: 18px;
+      height: 18px;
+      border: 2px solid rgba(40, 68, 63, 0.3);
       border-radius: 50%;
       border-top-color: var(--primary-dark);
       animation: spin 0.8s linear infinite;
     }
 
-    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
 
-    .btn-submit.loading .btn-text { display: none; }
-    .btn-submit.loading .spinner { display: inline-block; }
-    .btn-submit .spinner { display: none; }
+    .btn-submit.loading .btn-text {
+      display: none;
+    }
+
+    .btn-submit.loading .spinner {
+      display: inline-block;
+    }
+
+    .btn-submit .spinner {
+      display: none;
+    }
 
     /* Character counter */
     .char-counter {
@@ -861,10 +987,16 @@
       margin-top: 4px;
     }
 
-    .char-counter.near-limit { color: #f57c00; }
-    .char-counter.at-limit { color: #e53935; }
+    .char-counter.near-limit {
+      color: #f57c00;
+    }
+
+    .char-counter.at-limit {
+      color: #e53935;
+    }
   </style>
 </head>
+
 <body>
 
   <!-- ========== NAVIGATION BAR ========== -->
@@ -875,7 +1007,7 @@
     </div>
   </nav>
 
-   <!-- ========== PAGE HERO ========== -->
+  <!-- ========== PAGE HERO ========== -->
   <section class="page-hero">
     <div class="page-hero-inner">
       <div class="page-hero-badge">Penerimaan Santri Baru 2026/2027</div>
@@ -894,7 +1026,7 @@
           <div class="hero-step-num">3</div>
           Sowan Dewan Masyayikh dengan disertai walinya.
         </div>
-         <div class="hero-step">
+        <div class="hero-step">
           <div class="hero-step-num">3</div>
           Melakukan verifikasi data di kantor pondok pada jam kerja.
         </div>
@@ -948,8 +1080,8 @@
           <div class="form-row triple">
             <div class="form-group">
               <label for="tempat_lahir">Tempat Lahir <span class="required">*</span></label>
-              <input type="text" id="tempat_lahir" name="tempat_lahir" class="form-control"
-                placeholder="Kota/Kabupaten" required>
+              <input type="text" id="tempat_lahir" name="tempat_lahir" class="form-control" placeholder="Kota/Kabupaten"
+                required>
               <div class="error-msg" id="err-tmplahir">Tempat lahir wajib diisi.</div>
             </div>
             <div class="form-group">
@@ -959,8 +1091,8 @@
             </div>
             <div class="form-group">
               <label for="nik">NIK (No. KTP/KK) <span class="optional">(opsional)</span></label>
-              <input type="text" id="nik" name="nik" class="form-control"
-                placeholder="16 digit" maxlength="16" pattern="\d{16}">
+              <input type="text" id="nik" name="nik" class="form-control" placeholder="16 digit" maxlength="16"
+                pattern="\d{16}">
             </div>
           </div>
 
@@ -982,8 +1114,8 @@
           <div class="form-group">
             <label for="alamat">Alamat Lengkap <span class="required">*</span></label>
             <textarea id="alamat" name="alamat" class="form-control"
-              placeholder="Tulis alamat lengkap: Jalan, RT/RW, Desa/Kelurahan, Kecamatan, Kabupaten, Provinsi"
-              required rows="3" maxlength="400"></textarea>
+              placeholder="Tulis alamat lengkap: Jalan, RT/RW, Desa/Kelurahan, Kecamatan, Kabupaten, Provinsi" required
+              rows="3" maxlength="400"></textarea>
             <div class="char-counter" id="alamat-counter">0 / 400</div>
             <div class="error-msg" id="err-alamat">Alamat wajib diisi.</div>
           </div>
@@ -991,8 +1123,8 @@
           <div class="form-row">
             <div class="form-group">
               <label for="anak_ke">Anak ke- <span class="optional">(opsional)</span></label>
-              <input type="number" id="anak_ke" name="anak_ke" class="form-control"
-                placeholder="misal: 2" min="1" max="20">
+              <input type="number" id="anak_ke" name="anak_ke" class="form-control" placeholder="misal: 2" min="1"
+                max="20">
             </div>
             <div class="form-group">
               <label for="penyakit">Riwayat Penyakit / Alergi <span class="optional">(opsional)</span></label>
@@ -1045,10 +1177,11 @@
           </div>
 
           <div class="form-group">
-            <label for="pengalaman_pesantren">Pengalaman Pesantren Sebelumnya <span class="optional">(opsional)</span></label>
+            <label for="pengalaman_pesantren">Pengalaman Pesantren Sebelumnya <span
+                class="optional">(opsional)</span></label>
             <textarea id="pengalaman_pesantren" name="pengalaman_pesantren" class="form-control"
-              placeholder="Jika pernah mondok di tempat lain, sebutkan nama pesantren dan berapa lama"
-              rows="2" maxlength="300"></textarea>
+              placeholder="Jika pernah mondok di tempat lain, sebutkan nama pesantren dan berapa lama" rows="2"
+              maxlength="300"></textarea>
           </div>
 
         </div>
@@ -1068,8 +1201,8 @@
           <div class="form-row">
             <div class="form-group">
               <label for="nama_ayah">Nama Ayah <span class="required">*</span></label>
-              <input type="text" id="nama_ayah" name="nama_ayah" class="form-control"
-                placeholder="Nama lengkap ayah" required>
+              <input type="text" id="nama_ayah" name="nama_ayah" class="form-control" placeholder="Nama lengkap ayah"
+                required>
               <div class="error-msg" id="err-ayah">Nama ayah wajib diisi.</div>
             </div>
             <div class="form-group">
@@ -1082,8 +1215,8 @@
           <div class="form-row">
             <div class="form-group">
               <label for="nama_ibu">Nama Ibu <span class="required">*</span></label>
-              <input type="text" id="nama_ibu" name="nama_ibu" class="form-control"
-                placeholder="Nama lengkap ibu" required>
+              <input type="text" id="nama_ibu" name="nama_ibu" class="form-control" placeholder="Nama lengkap ibu"
+                required>
               <div class="error-msg" id="err-ibu">Nama ibu wajib diisi.</div>
             </div>
             <div class="form-group">
@@ -1096,8 +1229,8 @@
           <div class="form-row">
             <div class="form-group">
               <label for="hp_ortu">No. HP Orang Tua / Wali <span class="required">*</span></label>
-              <input type="tel" id="hp_ortu" name="hp_ortu" class="form-control"
-                placeholder="Nomor aktif WhatsApp" required>
+              <input type="tel" id="hp_ortu" name="hp_ortu" class="form-control" placeholder="Nomor aktif WhatsApp"
+                required>
               <div class="error-msg" id="err-hportu">No. HP orang tua wajib diisi.</div>
             </div>
           </div>
@@ -1168,7 +1301,8 @@
       <!-- === SUBMIT === -->
       <div class="submit-section fade-in">
         <h3>Siap untuk Mendaftar? 🎉</h3>
-        <p>Pastikan semua data sudah terisi dengan benar. Formulir akan dikirim langsung ke WhatsApp pondok untuk proses verifikasi.</p>
+        <p>Pastikan semua data sudah terisi dengan benar. Formulir akan dikirim langsung ke WhatsApp pondok untuk proses
+          verifikasi.</p>
         <div class="submit-btns">
           <button type="submit" class="btn-submit" id="btnSubmit">
             <span class="btn-text">📤 Kirim Pendaftaran</span>
@@ -1189,7 +1323,8 @@
   </footer>
 
   <!-- WhatsApp Float -->
-  <a href="https://wa.me/6285709662892?text=Assalamualaikum,%20saya%20ingin%20bertanya%20tentang%20pendaftaran" class="wa-float" target="_blank" aria-label="WhatsApp">
+  <a href="https://wa.me/6285709662892?text=Assalamualaikum,%20saya%20ingin%20bertanya%20tentang%20pendaftaran"
+    class="wa-float" target="_blank" aria-label="WhatsApp">
     <span class="icon wa"></span>
   </a>
 
@@ -1198,7 +1333,8 @@
     <div class="modal-box">
       <div class="modal-icon">🎊</div>
       <h3>Pendaftaran Terkirim!</h3>
-      <p>Terima kasih telah mendaftar di Pondok Pesantren Al-Falah. Tim kami akan segera menghubungi Anda melalui WhatsApp untuk proses verifikasi berikutnya.</p>
+      <p>Terima kasih telah mendaftar di Pondok Pesantren Al-Falah. Tim kami akan segera menghubungi Anda melalui
+        WhatsApp untuk proses verifikasi berikutnya.</p>
       <div class="modal-ref" id="refNumber"></div>
       <button class="modal-close" id="modalClose">Oke, Mengerti!</button>
     </div>
@@ -1349,7 +1485,7 @@
     const form = document.getElementById('registrationForm');
     const btnSubmit = document.getElementById('btnSubmit');
 
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', function (e) {
       e.preventDefault();
 
       if (!validateForm()) {
@@ -1398,7 +1534,8 @@ Ayah : ${data.ayah}
 Ibu : ${data.ibu}
 HP Orang Tua : ${data.hpOrtu}
 
-_Mohon dikonfirmasi penerimaan formulir ini. Terima kasih._`;
+_Mohon dikonfirmasi penerimaan formulir ini._
+*CATATAN: Dokumen persyaratan (Foto, KK, Ijazah, dsb) akan saya kirimkan/lampirkan secara manual setelah pesan ini.*`;
 
       // Simulate processing delay
       setTimeout(() => {
@@ -1412,7 +1549,11 @@ _Mohon dikonfirmasi penerimaan formulir ini. Terima kasih._`;
         // Open WhatsApp
         window.open('https://wa.me/6285709662892?text=' + encodeURIComponent(pesan), '_blank');
 
-        // Show modal
+        // Show modal and update modal text to remind them about attachments
+        const modalP = document.querySelector('.modal-box p');
+        if (modalP) {
+          modalP.innerHTML = 'Terima kasih telah mendaftar di Pondok Pesantren Al-Falah.<br><br><span style="color: #e53935; font-weight: bold;">PENTING:</span> Jangan lupa untuk melampirkan file dokumen (Foto, KK, dll) secara fisik/manual di chat WhatsApp yang baru saja terbuka untuk proses verifikasi.';
+        }
         document.getElementById('successModal').classList.add('open');
       }, 1500);
     });
@@ -1453,4 +1594,5 @@ _Mohon dikonfirmasi penerimaan formulir ini. Terima kasih._`;
   </script>
 
 </body>
+
 </html>
