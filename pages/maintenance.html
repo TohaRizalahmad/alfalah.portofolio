@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pemeliharaan Sistem</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  
+
   <style>
     * {
       margin: 0;
@@ -32,7 +33,7 @@
       max-width: 520px;
       text-align: center;
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-      border: 1px solid rgba(255,255,255,0.05);
+      border: 1px solid rgba(255, 255, 255, 0.05);
       animation: fadeIn 0.8s ease forwards;
     }
 
@@ -51,7 +52,7 @@
     .loader {
       width: 48px;
       height: 48px;
-      border: 4px solid rgba(255,255,255,0.1);
+      border: 4px solid rgba(255, 255, 255, 0.1);
       border-top: 4px solid #3b82f6;
       border-radius: 50%;
       margin: 0 auto 25px auto;
@@ -70,17 +71,18 @@
       color: #9ca3af;
       line-height: 1.7;
       margin-bottom: 25px;
-      text-align: center; /* rata tengah */
+      text-align: center;
+      /* rata tengah */
     }
 
     .time-box {
-      background: rgba(59,130,246,0.08);
+      background: rgba(59, 130, 246, 0.08);
       padding: 10px 12px;
       border-radius: 8px;
       font-size: 11px;
       text-align: left;
       margin-bottom: 25px;
-      border: 1px solid rgba(59,130,246,0.15);
+      border: 1px solid rgba(59, 130, 246, 0.15);
       color: #cbd5e1;
       font-family: monospace;
     }
@@ -108,16 +110,25 @@
     }
 
     @keyframes spin {
-      to { transform: rotate(360deg); }
+      to {
+        transform: rotate(360deg);
+      }
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
 
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   </style>
 </head>
+
 <body>
 
   <div class="container">
@@ -134,11 +145,11 @@
 
     <div class="time-box">
       <span>Current UTC Time : <span id="utcTime"></span></span>
-      <span>ISO 8601 Format  : <span id="isoTime"></span></span>
+      <span>ISO 8601 Format : <span id="isoTime"></span></span>
       <span>Estimated Completion (UTC) : 2026-03-03 21:00:00 UTC</span>
     </div>
 
-    <a href="index.html" class="btn">Kembali ke Beranda</a>
+    <a href="../index.html" class="btn">Kembali ke Beranda</a>
   </div>
 
   <script>
@@ -153,4 +164,5 @@
   </script>
 
 </body>
+
 </html>
