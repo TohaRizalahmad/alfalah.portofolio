@@ -1412,72 +1412,7 @@
       }
     }
 
-    /* ========== WHATSAPP FLOAT ========== */
-    .wa-float {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      width: 60px;
-      height: 60px;
-      background: #25D366;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
-      z-index: 9998;
-      transition: var(--transition);
-      animation: pulse 2s infinite;
-    }
 
-    .wa-float:hover {
-      transform: scale(1.1);
-    }
-
-    .wa-float .icon {
-      width: 32px;
-      height: 32px;
-    }
-
-    @keyframes pulse {
-
-      0%,
-      100% {
-        transform: scale(1);
-      }
-
-      50% {
-        transform: scale(1.05);
-      }
-    }
-
-    /* ========== BACK TO TOP ========== */
-    .back-to-top {
-      position: fixed;
-      bottom: 30px;
-      right: 100px;
-      width: 50px;
-      height: 50px;
-      background: var(--accent);
-      color: var(--text-dark);
-      border: none;
-      border-radius: 50%;
-      font-size: 24px;
-      cursor: pointer;
-      opacity: 0;
-      visibility: hidden;
-      transition: var(--transition);
-      z-index: 9998;
-    }
-
-    .back-to-top.show {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .back-to-top:hover {
-      transform: translateY(-5px);
-    }
 
     /* ========== LIGHTBOX ========== */
     .lightbox {
@@ -2508,14 +2443,7 @@
     </div>
   </footer>
 
-  <!-- ========== WHATSAPP FLOAT ========== -->
-  <a href="https://wa.me/6285709662892?text=Assalamualaikum,%20saya%20ingin%20bertanya%20tentang%20pendaftaran"
-    class="wa-float" target="_blank" aria-label="WhatsApp">
-    <span class="icon wa"></span>
-  </a>
 
-  <!-- ========== BACK TO TOP ========== -->
-  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
 
   <!-- ========== LIGHTBOX ========== -->
   <div class="lightbox" id="lightbox">
@@ -2693,22 +2621,7 @@
     });
 
     // ========== BACK TO TOP BUTTON ==========
-    const backToTop = document.getElementById('backToTop');
 
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 500) {
-        backToTop.classList.add('show');
-      } else {
-        backToTop.classList.remove('show');
-      }
-    });
-
-    backToTop.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
 
     // ========== FORM SUBMISSION ==========
     const contactForm = document.querySelector('.contact-form');
