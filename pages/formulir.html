@@ -1227,6 +1227,7 @@
       transform: scale(0.9);
       transform-origin: 0 0;
       border: none;
+      display: block;
     }
 
     @media (max-width: 480px) {
@@ -1310,11 +1311,11 @@
     </div>
 
     <!-- Google Forms Embed -->
-    <div class="form-card fade-in" style="padding-top: 5px;">
-      <div class="iframe-scaler">
+    <div class="form-card fade-in" style="padding-top: 5px; max-height: 700px; overflow: hidden;">
+      <div class="iframe-scaler" style="height: 1000px;">
         <iframe
           src="https://docs.google.com/forms/d/e/1FAIpQLSckROUm8l0ogg_MajgJ_p8rREKw6tFoBSB6ddJ4Zjrp2phl7g/viewform?embedded=true"
-          height="850" frameborder="0" marginheight="0" marginwidth="0">Memuat…</iframe>
+          height="800" frameborder="0" marginheight="0" marginwidth="0">Memuat…</iframe>
       </div>
     </div>
 
