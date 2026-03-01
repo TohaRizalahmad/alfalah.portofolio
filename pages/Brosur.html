@@ -1247,39 +1247,6 @@
       max-width: 500px;
     }
 
-    .footer-social-section h4 {
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 25px;
-      color: var(--accent);
-    }
-
-    .social-links-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      margin-bottom: 30px;
-    }
-
-    .social-icon-circle {
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: var(--transition);
-      color: #fff;
-      text-decoration: none;
-    }
-
-    .social-icon-circle:hover {
-      background: var(--accent);
-      transform: translateY(-3px);
-    }
-
     .social-list-extended {
       list-style: none;
       padding: 0;
@@ -1303,12 +1270,33 @@
       color: var(--accent);
     }
 
-    .footer-bottom {
+    .footer-utility-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      margin-bottom: 30px;
       padding-top: 40px;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-utility-links a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      font-size: 15px;
+      transition: var(--transition);
+    }
+
+    .footer-utility-links a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    .footer-bottom {
       text-align: center;
       font-size: 14px;
       color: rgba(255, 255, 255, 0.5);
+      padding-bottom: 20px;
     }
 
     @media (max-width: 992px) {
@@ -2381,49 +2369,8 @@
             unggul, berakhlak mulia, dan berwawasan global di Lampung Tengah.</p>
         </div>
 
-        <!-- SOCIAL MEDIA COLUMN (RIGHT) -->
+        <!-- SOCIAL LIST COLUMN (RIGHT) -->
         <div class="footer-social-section">
-          <h4>Follow Al-Falah</h4>
-
-          <!-- Social Icons Bar -->
-          <div class="social-links-grid">
-            <a href="https://www.instagram.com/pp.alfalah_rumbia/" class="social-icon-circle" title="Instagram 1">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-              </svg>
-            </a>
-            <a href="https://www.tiktok.com/@pon.pes_alfalah" class="social-icon-circle" title="TikTok 1">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
-              </svg>
-            </a>
-            <a href="#" class="social-icon-circle" title="Facebook">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-              </svg>
-            </a>
-            <a href="https://youtube.com/@kh_muhayat_channel" class="social-icon-circle" title="YouTube">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path
-                  d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z">
-                </path>
-                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
-              </svg>
-            </a>
-            <a href="https://wa.me/6285709662892" class="social-icon-circle" title="WhatsApp">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-7.6-11.7 8.38 8.38 0 0 1 3.8.9L21 3z"></path>
-              </svg>
-            </a>
-          </div>
-
           <!-- Extended Social List -->
           <ul class="social-list-extended">
             <li><a href="https://www.instagram.com/pp.alfalah_rumbia/">Instagram Utama (PP Al-Falah)</a></li>
@@ -2435,6 +2382,14 @@
             <li><a href="https://wa.me/6285709662892">WhatsApp Pendaftaran</a></li>
           </ul>
         </div>
+      </div>
+
+      <!-- NASA STYLE UTILITY LINKS -->
+      <div class="footer-utility-links">
+        <a href="#">For Media</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#kontak">Contact PP.AL FALAH</a>
+        <a href="#">Accessibility</a>
       </div>
 
       <div class="footer-bottom">
