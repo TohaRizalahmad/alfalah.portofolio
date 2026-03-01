@@ -526,62 +526,7 @@
       transition-delay: .20s;
     }
 
-    .wa-float {
-      position: fixed;
-      bottom: 28px;
-      right: 28px;
-      width: 52px;
-      height: 52px;
-      background: #25D366;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 18px rgba(37, 211, 102, .4);
-      z-index: 888;
-      transition: var(--transition);
-    }
 
-    .wa-float:hover {
-      transform: scale(1.1);
-    }
-
-    .wa-float .si {
-      width: 24px;
-      height: 24px;
-      background-image: url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@13.6.0/icons/whatsapp.svg');
-      filter: brightness(0) invert(1);
-    }
-
-    .back-top {
-      position: fixed;
-      bottom: 28px;
-      left: 28px;
-      width: 40px;
-      height: 40px;
-      background: var(--primary);
-      color: var(--accent);
-      border: 2px solid var(--accent);
-      font-size: 16px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      visibility: hidden;
-      transition: var(--transition);
-      z-index: 888;
-    }
-
-    .back-top.show {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .back-top:hover {
-      background: var(--accent);
-      color: var(--primary-dark);
-    }
 
     /* ──────────────────────────────────────────
        SECTION CTA — PENDAFTARAN
@@ -967,7 +912,8 @@
       </a>
 
       <!-- Card 2 -->
-      <a href="pages/maintenance.html" class="formal-card card-base fade-up" style="display: block; text-decoration: none; color: inherit;">
+      <a href="pages/maintenance.html" class="formal-card card-base fade-up"
+        style="display: block; text-decoration: none; color: inherit;">
         <img src="img/Logo/RTQ Logo.jpg" alt="Formal 3" loading="lazy">
         <div class="formal-info">
           <span class="role">Non Formal</span>
@@ -987,7 +933,8 @@
 
     <div class="formal-grid">
       <!-- Card 1 — ganti src, nama, deskripsi -->
-      <a href="pages/maintenance.html" class="formal-card card-base fade-up" style="display: block; text-decoration: none; color: inherit;">
+      <a href="pages/maintenance.html" class="formal-card card-base fade-up"
+        style="display: block; text-decoration: none; color: inherit;">
         <img src="img/Logo/SMP Logo.jpg" alt="Formal 1" loading="lazy">
         <div class="formal-info">
           <span class="role">Formal</span>
@@ -997,7 +944,8 @@
       </a>
 
       <!-- Card 2 -->
-      <a href="pages/maintenance.html" class="formal-card card-base fade-up" style="display: block; text-decoration: none; color: inherit;">
+      <a href="pages/maintenance.html" class="formal-card card-base fade-up"
+        style="display: block; text-decoration: none; color: inherit;">
         <img src="img/Logo/SMK Logo.jpg" alt="Formal 2" loading="lazy">
         <div class="formal-info">
           <span class="role">Formal</span>
@@ -1007,7 +955,8 @@
       </a>
 
       <!-- Card 3 -->
-      <a href="pages/maintenance.html" class="formal-card card-base fade-up" style="display: block; text-decoration: none; color: inherit;">
+      <a href="pages/maintenance.html" class="formal-card card-base fade-up"
+        style="display: block; text-decoration: none; color: inherit;">
         <img src="img/Logo/UT Logo.jpg" alt="Formal 3" loading="lazy">
         <div class="formal-info">
           <span class="role">Formal</span>
@@ -1071,14 +1020,7 @@
     </div>
   </footer>
 
-  <!-- WhatsApp Float -->
-  <a href="https://wa.me/6285709662892?text=Assalamualaikum,%20saya%20ingin%20bertanya%20tentang%20pendaftaran"
-    class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-    <span class="si wa" style="width:24px;height:24px;filter:brightness(0) invert(1)"></span>
-  </a>
 
-  <!-- Back to Top -->
-  <button class="back-top" id="backTop" aria-label="Kembali ke atas">↑</button>
 
   <script>
     // Fade-up animation
@@ -1087,10 +1029,7 @@
     }, { threshold: 0.12 });
     document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 
-    // Back to top
-    const btn = document.getElementById('backTop');
-    window.addEventListener('scroll', () => { btn.classList.toggle('show', window.scrollY > 300); });
-    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
 
     // Dynamic copyright year
     document.getElementById('copy-year').textContent = new Date().getFullYear();
