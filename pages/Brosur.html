@@ -340,190 +340,107 @@
       box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
     }
 
-    /* ========== STATS & CTA REDESIGN ========== */
+    /* ========== STATS & CTA REFINED ========== */
     .stats-cta {
-      background: linear-gradient(to bottom, #162623, #1e3330);
-      padding: 60px 5%;
+      background: #ffffff;
+      /* Putih bersih agar kontras dengan hero/footer */
+      padding: 35px 5%;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
       position: relative;
-      overflow: hidden;
-    }
-
-    .stats-cta::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
-      z-index: 0;
+      z-index: 10;
     }
 
     .stats-cta-inner {
-      max-width: 1100px;
+      max-width: 1000px;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 45px;
-      position: relative;
-      z-index: 1;
+      gap: 25px;
     }
 
     .stats-row {
       display: flex;
-      justify-content: space-between;
-      align-items: stretch;
+      justify-content: center;
+      align-items: center;
       width: 100%;
-      gap: 15px;
+      gap: 0;
       flex-wrap: nowrap;
-      /* Paksa satu baris */
     }
 
-    .stat-card {
+    .stat-item {
       flex: 1;
-      background: rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 30px 15px;
-      border-radius: 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      padding: 5px 10px;
     }
 
-    .stat-card:hover {
-      background: rgba(255, 255, 255, 0.06);
-      transform: translateY(-8px);
-      border-color: rgba(212, 175, 55, 0.3);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-    }
-
-    .stat-icon {
-      width: 48px;
-      height: 48px;
-      background: rgba(212, 175, 55, 0.1);
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 20px;
-      color: var(--accent);
-      transition: all 0.3s ease;
-    }
-
-    .stat-card:hover .stat-icon {
-      background: var(--accent);
-      color: #1a1a1a;
-      transform: rotateY(180deg);
+    /* Garis pemisah antar item */
+    .stat-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1px;
+      height: 30px;
+      background: rgba(0, 0, 0, 0.1);
     }
 
     .stat-number {
-      font-size: 36px;
+      font-size: 28px;
       font-weight: 800;
-      color: var(--text-light);
-      margin-bottom: 5px;
-      letter-spacing: -1px;
+      color: var(--primary);
+      margin-bottom: 2px;
+      letter-spacing: -0.5px;
     }
 
     .stat-label {
-      font-size: 13px;
-      color: rgba(255, 255, 255, 0.6);
+      font-size: 11px;
+      color: #666;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
+      letter-spacing: 1px;
       font-weight: 600;
     }
 
-    /* Premium Button Redesign */
+    /* Premium Button - Smaller version */
     .cta-wrapper {
       position: relative;
-      margin-top: 10px;
-    }
-
-    .cta-glow {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 120%;
-      height: 140%;
-      background: radial-gradient(circle, rgba(212, 175, 55, 0.25) 0%, transparent 70%);
-      filter: blur(15px);
-      z-index: -1;
-      animation: pulseGlow 3s infinite alternate;
-    }
-
-    @keyframes pulseGlow {
-      from {
-        opacity: 0.5;
-        transform: translate(-50%, -50%) scale(0.9);
-      }
-
-      to {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1.1);
-      }
     }
 
     .stats-cta .btn-primary {
       background: linear-gradient(135deg, #d4af37 0%, #f1c40f 50%, #d4af37 100%);
       background-size: 200% auto;
       color: #1a1a1a !important;
-      padding: 18px 50px;
-      font-size: 16px;
+      padding: 12px 35px;
+      font-size: 14px;
       font-weight: 700;
-      border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
       border: none;
-      transition: all 0.4s ease;
+      transition: all 0.3s ease;
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
 
     .stats-cta .btn-primary:hover {
       background-position: right center;
-      transform: translateY(-4px) scale(1.02);
-      box-shadow: 0 15px 40px rgba(212, 175, 55, 0.5);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(212, 175, 55, 0.35);
     }
 
-    .stats-cta .btn-primary svg {
-      transition: transform 0.3s ease;
-    }
-
-    .stats-cta .btn-primary:hover svg {
-      transform: translateX(5px);
-    }
-
-    /* Mobile Adjustments for Stats */
+    /* Mobile Adjustments */
     @media (max-width: 600px) {
-      .stats-row {
-        gap: 8px;
-        padding: 0;
-      }
-
-      .stat-card {
-        padding: 20px 8px;
-        border-radius: 15px;
-      }
-
-      .stat-icon {
-        width: 36px;
-        height: 36px;
-        margin-bottom: 12px;
-      }
-
-      .stat-icon svg {
-        width: 18px;
-        height: 18px;
+      .stats-cta {
+        padding: 25px 3%;
       }
 
       .stat-number {
-        font-size: 24px;
-        margin-bottom: 2px;
+        font-size: 20px;
       }
 
       .stat-label {
@@ -532,8 +449,8 @@
       }
 
       .stats-cta .btn-primary {
-        padding: 15px 35px;
-        font-size: 15px;
+        padding: 10px 25px;
+        font-size: 13px;
       }
     }
 
