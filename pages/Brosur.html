@@ -1530,12 +1530,21 @@
 
       /* Pengecilan tabel agar tidak terpotong */
       table {
-        font-size: 13px;
+        font-size: 12px;
       }
 
       th,
       td {
-        padding: 10px 12px;
+        padding: 8px 10px;
+      }
+
+      /* Pastikan waktu (kolom pertama) tidak turun ke baris baru */
+      td:first-child,
+      th:first-child {
+        white-space: nowrap;
+        padding-right: 15px;
+        font-weight: 600;
+        color: var(--primary);
       }
     }
 
