@@ -1228,8 +1228,8 @@
 
     .footer-content {
       display: grid;
-      grid-template-columns: 1.5fr 1fr;
-      gap: 60px;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
       margin-bottom: 60px;
     }
 
@@ -1243,21 +1243,24 @@
     .footer-identity p {
       font-size: 16px;
       line-height: 1.8;
-      color: rgba(255, 255, 255, 0.7);
+      color: #ffffff;
       max-width: 500px;
     }
 
-    .social-list-extended {
+    .social-list-extended,
+    .utility-list-extended {
       list-style: none;
       padding: 0;
     }
 
-    .social-list-extended li {
+    .social-list-extended li,
+    .utility-list-extended li {
       margin-bottom: 12px;
     }
 
-    .social-list-extended a {
-      color: rgba(255, 255, 255, 0.6);
+    .social-list-extended a,
+    .utility-list-extended a {
+      color: #ffffff;
       text-decoration: none;
       font-size: 14px;
       transition: var(--transition);
@@ -1266,37 +1269,17 @@
       gap: 10px;
     }
 
-    .social-list-extended a:hover {
+    .social-list-extended a:hover,
+    .utility-list-extended a:hover {
       color: var(--accent);
-    }
-
-    .footer-utility-links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 25px;
-      margin-bottom: 30px;
-      padding-top: 40px;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .footer-utility-links a {
-      color: rgba(255, 255, 255, 0.7);
-      text-decoration: none;
-      font-size: 15px;
-      transition: var(--transition);
-    }
-
-    .footer-utility-links a:hover {
-      color: var(--accent);
-      text-decoration: underline;
     }
 
     .footer-bottom {
       text-align: center;
       font-size: 14px;
-      color: rgba(255, 255, 255, 0.5);
-      padding-bottom: 20px;
+      color: rgba(255, 255, 255, 0.8);
+      padding-top: 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     @media (max-width: 992px) {
@@ -2369,30 +2352,34 @@
             unggul, berakhlak mulia, dan berwawasan global di Lampung Tengah.</p>
         </div>
 
-        <!-- SOCIAL LIST COLUMN (RIGHT) -->
+        <!-- SOCIAL LIST COLUMN (MIDDLE) -->
         <div class="footer-social-section">
           <h4
             style="font-size: 14px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; color: var(--accent);">
             Social Media</h4>
-          <!-- Extended Social List -->
           <ul class="social-list-extended">
-            <li><a href="https://www.instagram.com/pp.alfalah_rumbia/">Instagram Utama (PP Al-Falah)</a></li>
-            <li><a href="#">Instagram Galeri (Karya Santri)</a></li>
+            <li><a href="https://www.instagram.com/pp.alfalah_rumbia/">Instagram Utama</a></li>
+            <li><a href="#">Instagram Galeri</a></li>
             <li><a href="https://www.tiktok.com/@pon.pes_alfalah">TikTok Official</a></li>
             <li><a href="#">TikTok Edukasi</a></li>
-            <li><a href="#">TikTok Kegiatan Harian</a></li>
-            <li><a href="https://youtube.com/@kh_muhayat_channel">YouTube: KH Muhayat Channel</a></li>
-            <li><a href="https://wa.me/6285709662892">WhatsApp Pendaftaran</a></li>
+            <li><a href="#">TikTok Kegiatan</a></li>
+            <li><a href="https://youtube.com/@kh_muhayat_channel">YouTube Channel</a></li>
+            <li><a href="https://wa.me/6285709662892">WhatsApp Admin</a></li>
           </ul>
         </div>
-      </div>
 
-      <!-- NASA STYLE UTILITY LINKS -->
-      <div class="footer-utility-links">
-        <a href="#">For Media</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#kontak">Contact PP.AL FALAH</a>
-        <a href="#">Accessibility</a>
+        <!-- UTILITY LINKS COLUMN (RIGHT) -->
+        <div class="footer-utility-section">
+          <h4
+            style="font-size: 14px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; color: var(--accent);">
+            Site Map</h4>
+          <ul class="utility-list-extended">
+            <li><a href="#">For Media</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#kontak">Contact PP.AL FALAH</a></li>
+            <li><a href="#">Accessibility</a></li>
+          </ul>
+        </div>
       </div>
 
       <div class="footer-bottom">
