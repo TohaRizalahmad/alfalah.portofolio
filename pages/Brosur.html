@@ -340,68 +340,201 @@
       box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
     }
 
-    /* ========== STATS & CTA ========== */
+    /* ========== STATS & CTA REDESIGN ========== */
     .stats-cta {
-      background: var(--secondary);
-      padding: 50px 8%;
-      text-align: center;
+      background: linear-gradient(to bottom, #162623, #1e3330);
+      padding: 60px 5%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stats-cta::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+      z-index: 0;
     }
 
     .stats-cta-inner {
-      max-width: 900px;
+      max-width: 1100px;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 35px;
+      gap: 45px;
+      position: relative;
+      z-index: 1;
     }
 
     .stats-row {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: stretch;
       width: 100%;
+      gap: 15px;
+      flex-wrap: nowrap;
+      /* Paksa satu baris */
     }
 
-    .stat-item {
+    .stat-card {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 30px 15px;
+      border-radius: 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 0 50px;
+      text-align: center;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .stat-card:hover {
+      background: rgba(255, 255, 255, 0.06);
+      transform: translateY(-8px);
+      border-color: rgba(212, 175, 55, 0.3);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    }
+
+    .stat-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(212, 175, 55, 0.1);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      color: var(--accent);
+      transition: all 0.3s ease;
+    }
+
+    .stat-card:hover .stat-icon {
+      background: var(--accent);
+      color: #1a1a1a;
+      transform: rotateY(180deg);
     }
 
     .stat-number {
-      font-size: 48px;
+      font-size: 36px;
       font-weight: 800;
-      color: var(--primary);
-      line-height: 1;
+      color: var(--text-light);
+      margin-bottom: 5px;
+      letter-spacing: -1px;
     }
 
     .stat-label {
-      font-size: 15px;
-      color: var(--text-dark);
-      margin-top: 8px;
-      font-weight: 500;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.6);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 600;
     }
 
-    .stat-divider {
-      width: 2px;
-      height: 60px;
-      background: var(--accent);
-      opacity: 0.5;
+    /* Premium Button Redesign */
+    .cta-wrapper {
+      position: relative;
+      margin-top: 10px;
+    }
+
+    .cta-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 120%;
+      height: 140%;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.25) 0%, transparent 70%);
+      filter: blur(15px);
+      z-index: -1;
+      animation: pulseGlow 3s infinite alternate;
+    }
+
+    @keyframes pulseGlow {
+      from {
+        opacity: 0.5;
+        transform: translate(-50%, -50%) scale(0.9);
+      }
+
+      to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.1);
+      }
     }
 
     .stats-cta .btn-primary {
-      background: var(--primary);
-      color: var(--text-light);
-      box-shadow: 0 5px 20px rgba(40, 68, 63, 0.25);
+      background: linear-gradient(135deg, #d4af37 0%, #f1c40f 50%, #d4af37 100%);
+      background-size: 200% auto;
+      color: #1a1a1a !important;
+      padding: 18px 50px;
+      font-size: 16px;
+      font-weight: 700;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+      border: none;
+      transition: all 0.4s ease;
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
 
     .stats-cta .btn-primary:hover {
-      background: var(--accent);
-      color: var(--text-dark);
-      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+      background-position: right center;
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 15px 40px rgba(212, 175, 55, 0.5);
+    }
+
+    .stats-cta .btn-primary svg {
+      transition: transform 0.3s ease;
+    }
+
+    .stats-cta .btn-primary:hover svg {
+      transform: translateX(5px);
+    }
+
+    /* Mobile Adjustments for Stats */
+    @media (max-width: 600px) {
+      .stats-row {
+        gap: 8px;
+        padding: 0;
+      }
+
+      .stat-card {
+        padding: 20px 8px;
+        border-radius: 15px;
+      }
+
+      .stat-icon {
+        width: 36px;
+        height: 36px;
+        margin-bottom: 12px;
+      }
+
+      .stat-icon svg {
+        width: 18px;
+        height: 18px;
+      }
+
+      .stat-number {
+        font-size: 24px;
+        margin-bottom: 2px;
+      }
+
+      .stat-label {
+        font-size: 9px;
+        letter-spacing: 0.5px;
+      }
+
+      .stats-cta .btn-primary {
+        padding: 15px 35px;
+        font-size: 15px;
+      }
     }
 
     /* icon class kept for WA float button */
@@ -1570,22 +1703,59 @@
   <section class="stats-cta">
     <div class="stats-cta-inner">
       <div class="stats-row">
-        <div class="stat-item">
+        <!-- Santri -->
+        <div class="stat-card">
+          <div class="stat-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </div>
           <span class="stat-number">600+</span>
           <span class="stat-label">Santri Aktif</span>
         </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
+
+        <!-- Tahun -->
+        <div class="stat-card">
+          <div class="stat-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+          </div>
           <span class="stat-number">19+</span>
           <span class="stat-label">Tahun Berdiri</span>
         </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
+
+        <!-- Alumni -->
+        <div class="stat-card">
+          <div class="stat-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+            </svg>
+          </div>
           <span class="stat-number">500+</span>
           <span class="stat-label">Alumni</span>
         </div>
       </div>
-      <a href="#pendaftaran" class="btn-primary">Daftar Sekarang</a>
+
+      <div class="cta-wrapper">
+        <div class="cta-glow"></div>
+        <a href="#pendaftaran" class="btn-primary">
+          <span>Daftar Sekarang</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
     </div>
   </section>
 
