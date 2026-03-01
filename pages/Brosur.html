@@ -1482,6 +1482,35 @@
         font-size: 38px;
       }
     }
+
+    /* ========== NONAKTIFKAN ZOOM GAMBAR DI PERANGKAT SENTUH ========== */
+    @media (hover: none) {
+
+      .super-combo img,
+      .fasilitas-item img,
+      .gallery img,
+      .grid-gallery img,
+      .super-combo img:hover,
+      .fasilitas-item img:hover,
+      .gallery img:hover,
+      .grid-gallery img:hover {
+        transform: none !important;
+        filter: grayscale(0%) !important;
+        transition: none !important;
+      }
+
+      .program-card:hover,
+      .info-box:hover {
+        transform: none !important;
+      }
+
+      .btn-primary:hover,
+      .btn-submit:hover,
+      .back-to-top:hover,
+      .carousel-button:hover {
+        transform: none !important;
+      }
+    }
   </style>
 </head>
 
