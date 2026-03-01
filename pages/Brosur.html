@@ -1352,31 +1352,53 @@
 
     @media (max-width: 992px) {
       .footer-content {
-        grid-template-columns: 1.5fr 1fr 1fr;
-        gap: 20px;
+        grid-template-columns: 1fr 1fr;
+        /* 2 columns for links */
+        gap: 35px 20px;
         padding: 0 5%;
       }
 
+      .footer-identity {
+        grid-column: 1 / -1;
+        /* Full width top */
+        text-align: left;
+      }
+
+      .footer-identity img.footer-logo {
+        width: 48px !important;
+        /* Extremely small logo like NASA */
+        margin-bottom: 15px !important;
+      }
+
       .footer-identity h2 {
-        font-size: 18px;
-        margin-bottom: 15px;
+        font-size: 18px !important;
+        line-height: 1.3;
+        margin-bottom: 10px;
       }
 
       .footer-identity p {
         font-size: 12px;
         max-width: 100%;
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 10px;
       }
 
       .footer-social-section h4,
       .footer-utility-section h4 {
-        font-size: 11px;
-        margin-bottom: 12px;
+        font-size: 11px !important;
+        letter-spacing: 1px;
+        margin-bottom: 15px;
+        font-weight: 600;
+        color: #fff !important;
+        /* Pure white titles like NASA */
       }
 
       .social-list-extended a,
       .utility-list-extended a {
-        font-size: 11px;
-        gap: 5px;
+        font-size: 12px !important;
+        gap: 8px;
+        color: #fff !important;
+        /* More white links */
       }
     }
 
