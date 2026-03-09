@@ -674,8 +674,10 @@
 
     .super-combo img {
       width: 100%;
-      height: 200px;
-      object-fit: cover;
+      aspect-ratio: 9 / 16;
+      height: auto;
+      object-fit: contain;
+      background: #0d1f1d;
       border-radius: 0;
       filter: grayscale(50%);
       transition: var(--transition);
@@ -696,8 +698,10 @@
 
     .fasilitas-item img {
       width: 100%;
-      height: 200px;
-      object-fit: cover;
+      aspect-ratio: 9 / 16;
+      height: auto;
+      object-fit: contain;
+      background: #0d1f1d;
       border-radius: 10px;
       filter: grayscale(50%);
       transition: var(--transition);
@@ -739,9 +743,11 @@
     }
 
     .gallery img {
-      width: 350px;
-      height: 250px;
-      object-fit: cover;
+      width: min(350px, 85vw);
+      aspect-ratio: 9 / 16;
+      height: auto;
+      object-fit: contain;
+      background: #0d1f1d;
       border-radius: 0;
       filter: grayscale(40%);
       transition: var(--transition);
@@ -766,8 +772,10 @@
 
     .grid-gallery img {
       width: 100%;
-      height: 250px;
-      object-fit: cover;
+      aspect-ratio: 9 / 16;
+      height: auto;
+      object-fit: contain;
+      background: #0d1f1d;
       border-radius: 0;
       filter: grayscale(40%);
       transition: var(--transition);
@@ -786,7 +794,8 @@
       position: relative;
       overflow: hidden;
       width: 100%;
-      height: 450px;
+      aspect-ratio: 9 / 16;
+      height: auto;
       border-radius: 15px;
       margin-top: 30px;
     }
@@ -806,7 +815,8 @@
     .carousel-item img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
+      background: #0d1f1d;
       filter: grayscale(30%);
     }
 
@@ -1648,7 +1658,7 @@
 
       .grid-gallery,
       .fasilitas-gallery {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
       }
 
       section {
@@ -1694,12 +1704,12 @@
 
       .grid-gallery,
       .super-combo {
-        grid-template-columns: 1fr;
-        gap: 0;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 4px;
       }
 
       .carousel {
-        height: 300px;
+        /* aspect-ratio: 9/16 tetap aktif, tidak perlu override height */
       }
 
       .back-to-top {
@@ -1747,6 +1757,13 @@
       .btn-primary {
         padding: 12px 30px;
         font-size: 14px;
+      }
+
+      /* Satu kolom di HP kecil agar gambar portrait tidak terlalu sempit */
+      .grid-gallery,
+      .super-combo,
+      .fasilitas-gallery {
+        grid-template-columns: 1fr;
       }
     }
 
