@@ -9,7 +9,6 @@
   <meta name="description"
     content="Formulir Pendaftaran Santri Baru Pondok Pesantren Al-Falah Teluk Dalem Ilir Rumbia Lampung Tengah.">
 
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -17,7 +16,6 @@
     rel="stylesheet">
 
   <style>
-    /* ========== RESET & BASE ========== */
     *,
     *::before,
     *::after {
@@ -52,7 +50,6 @@
       overflow-x: hidden;
     }
 
-    /* ========== NAVBAR ========== */
     .navbar {
       position: fixed;
       top: 0;
@@ -84,7 +81,6 @@
       gap: 20px;
     }
 
-    /* Logo + nama pesantren */
     .nav-brand {
       display: flex;
       align-items: center;
@@ -120,7 +116,6 @@
       opacity: 0.9;
     }
 
-    /* Tombol Home */
     .nav-cta {
       display: inline-flex;
       align-items: center;
@@ -160,7 +155,6 @@
     }
 
 
-    /* ========== PAGE HERO ========== */
     .page-hero {
       background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, #3a5f58 100%);
       padding: 140px 8% 80px;
@@ -178,7 +172,6 @@
         radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.06) 0%, transparent 40%);
     }
 
-    /* decorative arabic pattern */
     .page-hero::after {
       content: '✦';
       position: absolute;
@@ -259,14 +252,12 @@
       flex-shrink: 0;
     }
 
-    /* ========== MAIN CONTENT ========== */
     .main-content {
       max-width: 1000px;
       margin: 0 auto;
       padding: 60px 20px 0px;
     }
 
-    /* ========== FORM CARD ========== */
     .form-card {
       background: #fff;
       border-radius: 20px;
@@ -276,9 +267,6 @@
     }
 
 
-    /* ========== FORM ELEMENTS ========== */
-
-    /* ========== INFO BOX ========== */
     .info-box {
       background: #fff;
       border-radius: 16px;
@@ -321,14 +309,12 @@
       margin-top: 1px;
     }
 
-    /* ========== NASA-INSPIRED FOOTER ========== */
     .footer {
       background: #000;
       color: #fff;
       padding: 20px 0 40px;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
       text-align: left;
-      /* Reset from center */
     }
 
     .footer-content {
@@ -446,7 +432,6 @@
 
 
 
-    /* ========== RESPONSIVE ========== */
     @media (max-width: 768px) {
       .navbar {
         padding: 8px 5% !important;
@@ -545,7 +530,6 @@
 
     }
 
-    /* ========== ANIMATIONS ========== */
     @keyframes fadeInUp {
       from {
         opacity: 0;
@@ -574,7 +558,6 @@
       animation-delay: 0.3s;
     }
 
-    /* Google Forms iframe */
     .iframe-scaler {
       width: 100%;
       border-radius: 12px;
@@ -591,11 +574,9 @@
 
 <body>
 
-  <!-- ========== NAVIGATION BAR ========== -->
   <nav class="navbar" id="mainNav">
     <div class="nav-container">
 
-      <!-- Brand: logo + nama -->
       <a href="../index.html" class="nav-brand">
         <img src="../img/Properti Utama/Logo Browser.png" alt="Logo Al-Falah" class="nav-logo">
         <div class="nav-brand-text">
@@ -604,7 +585,6 @@
         </div>
       </a>
 
-      <!-- Tombol Home -->
       <a href="../index.html" class="nav-cta">
         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
           stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -617,7 +597,6 @@
     </div>
   </nav>
 
-  <!-- ========== PAGE HERO ========== -->
   <section class="page-hero">
     <div class="page-hero-inner">
       <div class="page-hero-badge">Penerimaan Santri Baru 2026/2027</div>
@@ -645,10 +624,8 @@
     </div>
   </section>
 
-  <!-- ========== MAIN CONTENT ========== -->
   <main class="main-content">
 
-    <!-- Info Box -->
     <div class="info-box fade-in">
       <h4>📋 Syarat & Kelengkapan Berkas</h4>
       <ul>
@@ -659,7 +636,6 @@
       </ul>
     </div>
 
-    <!-- Google Forms Embed -->
     <div class="form-card fade-in">
       <div class="iframe-scaler">
         <iframe
@@ -671,11 +647,9 @@
 
   </main>
 
-  <!-- ========== FOOTER ========== -->
   <footer class="footer">
     <div style="max-width: 1200px; margin: 0 auto; padding: 0 5%;">
       <div class="footer-content">
-        <!-- IDENTITY COLUMN (LEFT) -->
         <div class="footer-identity">
           <img src="../img/Properti Utama/Logo Browser.png" alt="Logo Al-Falah" class="footer-logo"
             style="width: 100px; margin-bottom: 25px;">
@@ -684,7 +658,6 @@
             Ilir, Rumbia, Lampung Tengah.</p>
         </div>
 
-        <!-- SOCIAL LINKS COLUMN (MIDDLE) -->
         <div class="footer-social-section">
           <h4
             style="font-size: 14px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; color: var(--accent);">
@@ -700,7 +673,6 @@
           </ul>
         </div>
 
-        <!-- UTILITY LINKS COLUMN (RIGHT) -->
         <div class="footer-utility-section">
           <h4
             style="font-size: 14px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; color: var(--accent);">
@@ -722,24 +694,16 @@
 
 
 
-  <!-- ========== JAVASCRIPT ========== -->
   <script>
-    // ===== NAVBAR SCROLL EFFECT =====
     const navbar = document.getElementById('mainNav');
     window.addEventListener('scroll', () => {
       navbar.classList.toggle('scrolled', window.scrollY > 80);
     });
 
-    // ===== IFRAME AUTO-RESIZE =====
-    // Google Forms adalah cross-origin, sehingga tidak bisa baca contentWindow.
-    // Solusi: set tinggi awal cukup besar lalu kecilkan bertahap hingga pas.
     const gframe = document.getElementById('gform-iframe');
     gframe.addEventListener('load', function () {
-      // Tinggi default saat baru load — beri waktu form render
       this.style.height = '900px';
 
-      // Coba deteksi apakah form sudah submit (Google Forms redirect ke halaman konfirmasi yang lebih pendek)
-      // dengan mengecek perubahan ukuran dokumen via polling
       let lastHeight = 900;
       const observer = setInterval(() => {
         try {
@@ -749,7 +713,6 @@
             lastHeight = newHeight;
           }
         } catch (e) {
-          // Cross-origin block — pertahankan tinggi default
           clearInterval(observer);
         }
       }, 500);
