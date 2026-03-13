@@ -826,10 +826,10 @@
     }
 
     .table-wrapper {
-      overflow-x: auto;
       margin-top: 30px;
-      border: 1px solid currentColor;
-      border-radius: 10px;
+      border: none;
+      border-radius: 0;
+      background: transparent;
     }
 
     table {
@@ -838,31 +838,54 @@
       font-size: 16px;
     }
 
-    thead tr {
-      background: rgba(0, 0, 0, 0.1);
+    table thead {
+      display: none;
+    }
+
+    table,
+    table tbody,
+    table tr,
+    table td {
+      display: block;
+      width: 100%;
+    }
+
+    table tbody tr {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      border-radius: 10px;
+      margin-bottom: 10px;
+      padding: 12px 15px;
+      position: relative;
+    }
+
+    table tbody tr:nth-child(odd) {
+      background: rgba(255, 255, 255, 0.06);
     }
 
     th,
     td {
-      padding: 15px 20px;
-      text-align: left;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      padding: 0 !important;
     }
 
-    th {
+    table tbody td:first-child {
+      font-size: 13px !important;
       font-weight: 700;
-    }
-
-    td:first-child,
-    th:first-child {
-      color: var(--accent) !important;
-      font-weight: 700 !important;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+      padding: 0 0 8px 0 !important;
+      margin-bottom: 6px;
       white-space: nowrap;
-      font-size: 15px !important;
     }
 
-    tbody tr:nth-child(odd) {
-      background: rgba(0, 0, 0, 0.03);
+    table tbody td:last-child {
+      font-size: 13px !important;
+      line-height: 1.5;
+      padding: 0 !important;
+      border-bottom: none;
+      color: inherit;
     }
 
     .materi-grid {
@@ -1667,19 +1690,6 @@
         bottom: 100px;
       }
 
-      table {
-        font-size: 15px;
-      }
-
-      th,
-      td {
-        padding: 10px 12px;
-      }
-
-      td:first-child,
-      th:first-child {
-        font-size: 15px !important;
-      }
     }
 
     @media (max-width: 480px) {
@@ -1714,71 +1724,6 @@
         grid-template-columns: 1fr;
       }
     }
-
-    @media (max-width: 600px) {
-
-      .table-wrapper {
-        border: none;
-        border-radius: 0;
-        background: transparent;
-      }
-
-      table thead {
-        display: none;
-      }
-
-      table,
-      table tbody,
-      table tr,
-      table td {
-        display: block;
-        width: 100%;
-      }
-
-      table tbody tr {
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(212, 175, 55, 0.25);
-        border-radius: 10px;
-        margin-bottom: 10px;
-        padding: 12px 15px;
-        position: relative;
-      }
-
-      table tbody tr:nth-child(odd) {
-        background: rgba(255, 255, 255, 0.06);
-      }
-
-      table {
-        font-size: 13px !important;
-      }
-
-      th,
-      td {
-        padding: 0 !important;
-      }
-
-      table tbody td:first-child {
-        font-size: 13px !important;
-        font-weight: 700;
-        color: var(--accent);
-        text-transform: uppercase;
-        letter-spacing: 0.8px;
-        border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-        padding: 0 0 8px 0 !important;
-        margin-bottom: 6px;
-        white-space: nowrap;
-      }
-
-      table tbody td:last-child {
-        font-size: 13px !important;
-        line-height: 1.5;
-        padding: 0 !important;
-        border-bottom: none;
-        color: inherit;
-      }
-    }
-
-
 
     @media (hover: none) {
 
@@ -1830,7 +1775,7 @@
         <li><a href="#kegiatan">Kegiatan</a></li>
         <li><a href="#fasilitas">Fasilitas</a></li>
         <li><a href="#pendaftaran">Pendaftaran</a></li>
-        <li><a href="#kontak">Kontak</a></li>
+        <li><a href="#feedback">Feedback</a></li>
         <li><a href="../index.html" class="nav-cta"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
               viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
               stroke-linejoin="round" style="display:inline;vertical-align:-2px;margin-right:5px">
