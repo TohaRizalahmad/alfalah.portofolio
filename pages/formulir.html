@@ -379,9 +379,115 @@
     .form-card {
       background: #fff;
       border-radius: 20px;
-      box-shadow: var(--shadow);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
       margin-bottom: 40px;
       overflow: hidden;
+      border: 1px solid rgba(212, 175, 55, 0.15);
+    }
+
+    .form-card-header {
+      background: linear-gradient(135deg, var(--primary) 0%, #1e3330 100%);
+      padding: 28px 36px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .form-card-header::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 5px;
+      background: var(--accent);
+    }
+
+    .form-card-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 90% 50%, rgba(212, 175, 55, 0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .form-header-top {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 10px;
+    }
+
+    .form-header-icon {
+      width: 42px;
+      height: 42px;
+      background: var(--accent);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .form-header-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .form-header-text h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+
+    .form-header-text p {
+      font-size: 12.5px;
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .form-header-badges {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .form-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 11px;
+      padding: 4px 12px;
+      border-radius: 50px;
+    }
+
+    .form-badge-dot {
+      width: 6px;
+      height: 6px;
+      background: #4ade80;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .form-card-body {
+      padding: 0;
+    }
+
+    @media (max-width: 640px) {
+      .form-card-header {
+        padding: 20px;
+      }
+
+      .form-header-text h3 {
+        font-size: 15px;
+      }
+
+      .form-header-icon {
+        width: 36px;
+        height: 36px;
+      }
     }
 
 
@@ -756,12 +862,40 @@
   <main class="main-content">
 
     <div class="form-card fade-in">
-      <div class="iframe-scaler">
-        <iframe
-          src="https://docs.google.com/forms/d/e/1FAIpQLSdh5aZurhcKyYqu_w5AL53f2g4Ro1goUlkwiYLXOY-j1nvrew/viewform?embedded=true"
-          id="gform-iframe" frameborder="0" marginheight="0" marginwidth="0"
-          style="width:100%; border:none; display:block; height:1500px;">Memuat…</iframe>
+
+      <div class="form-card-header">
+        <div class="form-header-top">
+          <div class="form-header-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#1a2e2b" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+              <polyline points="14 2 14 8 20 8" />
+              <line x1="16" y1="13" x2="8" y2="13" />
+              <line x1="16" y1="17" x2="8" y2="17" />
+              <polyline points="10 9 9 9 8 9" />
+            </svg>
+          </div>
+          <div class="form-header-text">
+            <h3>Formulir Pendaftaran Santri Baru</h3>
+            <p>Pondok Pesantren Al-Falah · Tahun Ajaran 2026/2027</p>
+          </div>
+        </div>
+        <div class="form-header-badges">
+          <span class="form-badge"><span class="form-badge-dot"></span>Formulir Aktif</span>
+          <span class="form-badge">📋 Data Anda Aman & Terjaga</span>
+          <span class="form-badge">⏱ ±5 Menit Pengisian</span>
+        </div>
       </div>
+
+      <div class="form-card-body">
+        <div class="iframe-scaler">
+          <iframe
+            src="https://docs.google.com/forms/d/e/1FAIpQLSdh5aZurhcKyYqu_w5AL53f2g4Ro1goUlkwiYLXOY-j1nvrew/viewform?embedded=true"
+            id="gform-iframe" frameborder="0" marginheight="0" marginwidth="0"
+            style="width:100%; border:none; display:block; height:1500px;">Memuat…</iframe>
+        </div>
+      </div>
+
     </div>
 
   </main>
