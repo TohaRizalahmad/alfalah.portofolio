@@ -1752,6 +1752,67 @@
         transform: none !important;
       }
     }
+
+    .kegiatan-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .kegiatan-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      padding: 26px 28px;
+      border-radius: 12px;
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      background: rgba(255, 255, 255, 0.05);
+      transition: var(--transition);
+    }
+
+    .kegiatan-card:hover {
+      border-color: var(--accent);
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-4px);
+    }
+
+    .kegiatan-num {
+      width: 38px;
+      height: 38px;
+      min-width: 38px;
+      background: rgba(212, 175, 55, 0.12);
+      border: 1.5px solid var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .kegiatan-card h4 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 7px;
+      line-height: 1.4;
+    }
+
+    .kegiatan-card p {
+      font-size: 14px;
+      opacity: 0.85;
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    @media (max-width: 768px) {
+      .kegiatan-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 
@@ -1884,46 +1945,46 @@
 
   <section id="kegiatan" class="fade-up">
     <h2 class="section-title">Kegiatan Tahunan</h2>
-    <ul style="font-size:16px; max-width:900px; margin: 0 auto 30px; padding-left: 20px;">
-      <li>Haul Akbar</li>
-      <li>Pra Haflah</li>
-      <li>Haflah Akhirissanah</li>
-    </ul>
-    <div class="gallery">
-      <img loading="lazy" src="../img/Kegiatan Harian/Kegiatan Harian 1.jpg" alt="Kegiatan 1">
-      <img loading="lazy" src="../img/Kegiatan Harian/Kegiatan Harian 2.jpg" alt="Kegiatan 2">
-      <img loading="lazy" src="../img/Kegiatan Harian/Kegiatan Harian 3.jpg" alt="Kegiatan 3">
-      <img loading="lazy" src="../img/Kegiatan Harian/Kegiatan Harian 4.jpg" alt="Kegiatan 4">
+    <div class="kegiatan-grid">
+      <div class="kegiatan-card">
+        <h4>Haul Akbar</h4>
+      </div>
+      <div class="kegiatan-card">
+        <h4>Pra Haflah</h4>
+      </div>
+      <div class="kegiatan-card">
+        <h4>Haflah Akhirissanah</h4>
+      </div>
     </div>
   </section>
 
   <section class="fade-up">
     <h2 class="section-title">Kegiatan Bulanan</h2>
-    <ul style="font-size:16px; max-width:900px; margin: 0 auto 30px; padding-left: 20px;">
-      <li>Manakib</li>
-      <li>Khitobah</li>
-    </ul>
-    <div class="gallery">
-      <img loading="lazy" src="../img/Kegiatan Bulanan/Kegiatan Bulanan 1.jpg" alt="Bulanan 1">
-      <img loading="lazy" src="../img/Kegiatan Bulanan/Kegiatan Bulanan 2.jpg" alt="Bulanan 2">
-      <img loading="lazy" src="../img/Kegiatan Bulanan/Kegiatan Bulanan 3.PNG" alt="Bulanan 3">
-      <img loading="lazy" src="../img/Kegiatan Harian/Kegiatan Harian 5.PNG" alt="Bulanan 4">
+    <div class="kegiatan-grid">
+      <div class="kegiatan-card">
+        <h4>Manakib</h4>
+      </div>
+      <div class="kegiatan-card">
+        <h4>Khitobah</h4>
+      </div>
     </div>
   </section>
 
   <section class="fade-up">
     <h2 class="section-title">Kegiatan Mingguan</h2>
-    <ul style="font-size:16px; max-width:900px; margin: 0 auto 30px; padding-left: 20px;">
-      <li>Tahlil Dan Yasinan setiap malam jum'at</li>
-      <li>Lalaran kubro tiap tingkatan</li>
-      <li>Dzibaiyah</li>
-      <li>Ziarah</li>
-    </ul>
-    <div class="gallery">
-      <img loading="lazy" src="../img/Kegiatan Mingguan/Kegiatan Mingguan 1.jpg" alt="Mingguan 1">
-      <img loading="lazy" src="../img/Kegiatan Mingguan/Kegiatan Mingguan 2.jpg" alt="Mingguan 2">
-      <img loading="lazy" src="../img/Kegiatan Mingguan/Kegiatan Mingguan 3.PNG" alt="Mingguan 3">
-      <img loading="lazy" src="../img/Kegiatan Harian/Kegiatan Harian 6.PNG" alt="Mingguan 4">
+    <div class="kegiatan-grid">
+      <div class="kegiatan-card">
+        <h4>Tahlil &amp; Yasinan</h4>
+      </div>
+      <div class="kegiatan-card">
+        <h4>Lalaran Kubro</h4>
+      </div>
+      <div class="kegiatan-card">
+        <h4>Dzibaiyah</h4>
+      </div>
+      <div class="kegiatan-card">
+        <h4>Ziarah</h4>
+      </div>
     </div>
   </section>
 
