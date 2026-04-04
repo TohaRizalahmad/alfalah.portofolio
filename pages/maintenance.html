@@ -654,8 +654,8 @@
 
   <script>
     // ─── KONFIGURASI ────────────────────────────────────────────────
-    const start  = new Date('2026-03-20T00:00:00Z');
-    const target = new Date('2026-04-05T04:00:00Z');
+    const start  = new Date('2026-04-03T00:00:00Z');
+    const target = new Date('2026-04-09T04:00:00Z');
     // ────────────────────────────────────────────────────────────────
 
     const stepThresholds = [25, 50, 75, 100];
@@ -720,7 +720,6 @@
       updateClock(now);
     }
 
-    // Format tampilan Estimasi Selesai dari variabel target
     const bulan = ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
     const tgl  = target.getUTCDate();
     const bln  = bulan[target.getUTCMonth()];
