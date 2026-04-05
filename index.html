@@ -806,17 +806,29 @@
       }
 
       .formal-section .formal-card img,
-      .formal-section .formal-card .dual-img {
-        height: 130px;
+      .formal-section .formal-card .dual-img,
+      .formal-section .formal-card .dual-img img {
+        height: 130px !important;
+        min-height: unset !important;
+        max-height: unset !important;
+        object-fit: contain;
       }
 
       .informasi-card img {
         min-height: 120px;
       }
 
-      .unit-section .formal-card img,
-      .formal-section .formal-card img {
+      .unit-section .formal-card img {
         height: auto !important;
+        min-height: unset !important;
+        max-height: unset !important;
+        width: 100%;
+        object-fit: contain;
+      }
+
+      .formal-section .formal-card img,
+      .formal-section .formal-card .dual-img img {
+        height: 130px !important;
         min-height: unset !important;
         max-height: unset !important;
         width: 100%;
@@ -928,8 +940,12 @@
       }
 
       .formal-section .formal-card img,
-      .formal-section .formal-card .dual-img {
-        height: 100px;
+      .formal-section .formal-card .dual-img,
+      .formal-section .formal-card .dual-img img {
+        height: 100px !important;
+        min-height: unset !important;
+        max-height: unset !important;
+        object-fit: contain;
       }
 
       .informasi-card img {
@@ -1015,8 +1031,12 @@
       }
 
       .formal-section .formal-card img,
-      .formal-section .formal-card .dual-img {
-        height: 80px;
+      .formal-section .formal-card .dual-img,
+      .formal-section .formal-card .dual-img img {
+        height: 80px !important;
+        min-height: unset !important;
+        max-height: unset !important;
+        object-fit: contain;
       }
 
       .informasi-card img {
