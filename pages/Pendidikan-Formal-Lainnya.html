@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pondok Pesantren Al-Falah — Lampung Tengah</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+<style>
+  /* ─── CSS Variables ─────────────────────────────────── */
+  :root {
+    --green-deep:   #1A3528;
+    --green-mid:    #28443F;
+    --green-light:  #3A6055;
+    --gold:         #C8972A;
+    --gold-light:   #E0B84A;
+    --gold-pale:    #F5E6C0;
+    --cream:        #F8F4EB;
+    --cream-dark:   #EDE8DA;
+    --white:        #FFFFFF;
+    --text-dark:    #1A1A1A;
+    --text-mid:     #3D4A45;
+    --text-muted:   #7A8A82;
+    --border:       rgba(200,151,42,0.25);
+    --shadow:       0 4px 32px rgba(26,53,40,0.12);
+    --shadow-lg:    0 12px 60px rgba(26,53,40,0.18);
+  }
+
+  /* ─── Reset & Base ──────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; font-size: 16px; }
+  body {
+    font-family: 'Nunito Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    overflow-x: hidden;
+    line-height: 1.7;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+
+  /* ─── Geometric Pattern SVG bg ─────────────────────── */
+  .geo-bg {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23C8972A' stroke-width='0.4' opacity='0.18'%3E%3Cpath d='M30 0 L60 15 L60 45 L30 60 L0 45 L0 15 Z'/%3E%3Cpath d='M30 10 L50 20 L50 40 L30 50 L10 40 L10 20 Z'/%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  /* ─── Navigation ─────────────────────────────────────── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+    background: rgba(26,53,40,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(200,151,42,0.3);
+    padding: 0 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+    transition: box-shadow 0.3s;
+  }
+  nav.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,0.3); }
+  .nav-logo {
+    display: flex; align-items: center; gap: 12px;
+  }
+  .nav-logo .logo-mark {
+    width: 38px; height: 38px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px; font-weight: 700;
+    color: var(--green-deep);
+  }
+  .nav-logo .logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px; font-weight: 600;
+    color: var(--white); line-height: 1.2;
+  }
+  .nav-logo .logo-sub { font-size: 10px; color: var(--gold-light); font-family: 'Nunito Sans', sans-serif; letter-spacing: 1px; }
+  .nav-links {
+    display: flex; gap: 6px; list-style: none;
+  }
+  .nav-links a {
+    color: rgba(255,255,255,0.8);
+    font-size: 13px; font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 6px;
+    letter-spacing: 0.3px;
+    transition: all 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold-light); background: rgba(200,151,42,0.12); }
+  .nav-cta {
+    background: var(--gold); color: var(--green-deep) !important;
+    padding: 7px 16px !important; border-radius: 8px !important;
+    font-weight: 700 !important;
+  }
+  .nav-cta:hover { background: var(--gold-light) !important; }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+  .hamburger span { width: 22px; height: 2px; background: var(--white); border-radius: 2px; transition: 0.3s; }
+  .mobile-menu {
+    display: none; position: fixed; top: 64px; left: 0; right: 0;
+    background: var(--green-deep); z-index: 998;
+    flex-direction: column; padding: 16px 24px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    color: rgba(255,255,255,0.85); font-size: 15px; font-weight: 600;
+    padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.07);
+    display: block;
+  }
+  .mobile-menu a:last-child { border-bottom: none; }
+
+  /* ─── Hero ───────────────────────────────────────────── */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(160deg, var(--green-deep) 0%, var(--green-mid) 55%, #1E3A30 100%);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+    padding: 100px 40px 60px;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23C8972A' stroke-width='0.5' opacity='0.12'%3E%3Cpath d='M40 0 L80 20 L80 60 L40 80 L0 60 L0 20 Z'/%3E%3Cpath d='M40 12 L68 26 L68 54 L40 68 L12 54 L12 26 Z'/%3E%3Cpath d='M40 24 L56 32 L56 48 L40 56 L24 48 L24 32 Z'/%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: -2px; left: 0; right: 0;
+    height: 80px;
+    background: linear-gradient(to bottom, transparent, var(--cream));
+    pointer-events: none;
+  }
+  .hero-content {
+    position: relative; z-index: 1;
+    text-align: center; max-width: 860px;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(200,151,42,0.18);
+    border: 1px solid rgba(200,151,42,0.4);
+    color: var(--gold-light); font-size: 12px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    padding: 6px 18px; border-radius: 100px;
+    margin-bottom: 28px;
+    animation: fadeUp 0.8s ease both;
+  }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(34px, 6vw, 68px);
+    font-weight: 900; color: var(--white);
+    line-height: 1.1; margin-bottom: 12px;
+    animation: fadeUp 0.8s 0.1s ease both;
+  }
+  .hero-title span { color: var(--gold); }
+  .hero-subtitle {
+    font-size: clamp(14px, 2vw, 18px);
+    color: rgba(255,255,255,0.65); margin-bottom: 8px;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+  .hero-address {
+    font-size: 13px; color: rgba(200,151,42,0.8);
+    margin-bottom: 44px;
+    animation: fadeUp 0.8s 0.25s ease both;
+  }
+  .hero-units {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
+    margin-bottom: 44px;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+  .unit-tag {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.18);
+    color: rgba(255,255,255,0.9); font-size: 12px; font-weight: 600;
+    padding: 6px 14px; border-radius: 6px;
+    letter-spacing: 0.3px;
+  }
+  .hero-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--gold);
+    color: var(--green-deep); font-weight: 700; font-size: 15px;
+    padding: 14px 32px; border-radius: 10px;
+    transition: all 0.25s;
+    animation: fadeUp 0.8s 0.4s ease both;
+    box-shadow: 0 8px 24px rgba(200,151,42,0.35);
+  }
+  .hero-btn:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(200,151,42,0.45); }
+  .hero-btn svg { width: 18px; height: 18px; }
+  .hero-scroll {
+    position: absolute; bottom: 90px; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    color: rgba(255,255,255,0.4); font-size: 11px; letter-spacing: 2px;
+    text-transform: uppercase;
+    animation: bounce 2s infinite 1.5s;
+  }
+  .hero-scroll::after { content: '↓'; font-size: 16px; }
+
+  /* ─── Section Shared ─────────────────────────────────── */
+  section { padding: 96px 0; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+  .section-label {
+    display: inline-block;
+    color: var(--gold); font-size: 11px; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 700; color: var(--green-deep);
+    line-height: 1.2;
+  }
+  .section-title.light { color: var(--white); }
+  .section-rule {
+    width: 48px; height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    border-radius: 2px; margin: 18px 0 16px;
+  }
+  .section-desc {
+    font-size: 16px; color: var(--text-muted); max-width: 560px;
+    line-height: 1.8;
+  }
+  .section-desc.light { color: rgba(255,255,255,0.65); }
+
+  /* ─── Reveal Animation ───────────────────────────────── */
+  .reveal {
+    opacity: 0; transform: translateY(32px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* ─── Visi Misi ──────────────────────────────────────── */
+  .visimisi-section { background: var(--cream); }
+  .visimisi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 56px; }
+  .vm-card {
+    background: var(--white);
+    border-radius: 20px; padding: 44px 40px;
+    border: 1px solid var(--cream-dark);
+    box-shadow: var(--shadow);
+    position: relative; overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .vm-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  .vm-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  }
+  .vm-card-icon {
+    width: 52px; height: 52px; border-radius: 14px;
+    background: linear-gradient(135deg, var(--green-deep), var(--green-light));
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 24px;
+  }
+  .vm-card-icon svg { width: 26px; height: 26px; color: var(--gold); fill: var(--gold); }
+  .vm-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px; font-weight: 700;
+    color: var(--green-deep); margin-bottom: 16px;
+  }
+  .vm-card p, .vm-card li {
+    font-size: 15px; color: var(--text-mid); line-height: 1.8;
+  }
+  .vm-card ol { padding-left: 20px; }
+  .vm-card li { margin-bottom: 8px; }
+
+  /* ─── Jalur Pendidikan ───────────────────────────────── */
+  .jalur-section {
+    background: linear-gradient(160deg, var(--green-deep) 0%, var(--green-mid) 100%);
+    position: relative; overflow: hidden;
+  }
+  .jalur-section::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23C8972A' stroke-width='0.4' opacity='0.1'%3E%3Cpath d='M30 0 L60 15 L60 45 L30 60 L0 45 L0 15 Z'/%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+  .jalur-header { text-align: center; margin-bottom: 60px; }
+  .jalur-header .section-rule { margin: 18px auto 16px; }
+  .jalur-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .jalur-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(200,151,42,0.25);
+    border-radius: 20px; padding: 36px 32px;
+    backdrop-filter: blur(4px);
+    transition: background 0.3s, border-color 0.3s;
+  }
+  .jalur-card:hover {
+    background: rgba(255,255,255,0.09);
+    border-color: rgba(200,151,42,0.5);
+  }
+  .jalur-card .jalur-num {
+    width: 40px; height: 40px; border-radius: 10px;
+    background: rgba(200,151,42,0.15);
+    border: 1px solid rgba(200,151,42,0.4);
+    color: var(--gold); font-size: 16px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 18px;
+  }
+  .jalur-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px; font-weight: 700; color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .jalur-sub {
+    font-size: 13px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: rgba(255,255,255,0.5);
+    margin-bottom: 10px; margin-top: 16px;
+  }
+  .jalur-list { list-style: none; }
+  .jalur-list li {
+    font-size: 14px; color: rgba(255,255,255,0.8);
+    padding: 6px 0; padding-left: 20px; position: relative;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .jalur-list li:last-child { border-bottom: none; }
+  .jalur-list li::before {
+    content: '›';
+    position: absolute; left: 0; color: var(--gold); font-weight: 700;
+  }
+  .jalur-list li span { color: rgba(255,255,255,0.5); font-size: 12px; }
+  .jalur-card.full { grid-column: 1 / -1; }
+  .uni-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 8px; }
+  .uni-item {
+    background: rgba(200,151,42,0.1);
+    border: 1px solid rgba(200,151,42,0.2);
+    border-radius: 10px; padding: 14px 16px; text-align: center;
+    font-size: 13px; color: rgba(255,255,255,0.85); font-weight: 600;
+    transition: background 0.2s;
+  }
+  .uni-item:hover { background: rgba(200,151,42,0.2); }
+  .uni-item span { display: block; font-size: 11px; color: var(--gold); font-weight: 700; margin-bottom: 4px; }
+
+  /* ─── Fasilitas ──────────────────────────────────────── */
+  .fasilitas-section { background: var(--cream-dark); }
+  .fasilitas-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .fasilitas-text .section-rule { margin: 18px 0; }
+  .fas-list { list-style: none; margin-top: 32px; }
+  .fas-item {
+    display: flex; align-items: center; gap: 16px;
+    padding: 14px 0; border-bottom: 1px solid var(--cream);
+    transition: padding-left 0.2s;
+  }
+  .fas-item:hover { padding-left: 6px; }
+  .fas-item:last-child { border-bottom: none; }
+  .fas-num {
+    width: 34px; height: 34px; flex-shrink: 0;
+    background: var(--green-deep); color: var(--gold);
+    border-radius: 8px; font-size: 13px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .fas-item span { font-size: 15px; color: var(--text-mid); font-weight: 500; }
+  .fasilitas-visual {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  }
+  .fas-card {
+    background: var(--white); border-radius: 16px; padding: 28px 20px;
+    text-align: center; box-shadow: var(--shadow);
+    border: 1px solid var(--cream-dark);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .fas-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  .fas-card .icon { font-size: 36px; margin-bottom: 12px; }
+  .fas-card h4 { font-size: 14px; font-weight: 700; color: var(--green-deep); }
+
+  /* ─── Ekstrakurikuler ────────────────────────────────── */
+  .ekstra-section { background: var(--cream); }
+  .ekstra-header { text-align: center; margin-bottom: 56px; }
+  .ekstra-header .section-rule { margin: 18px auto; }
+  .ekstra-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  .ekstra-card {
+    background: var(--white); border-radius: 16px;
+    padding: 28px 20px; text-align: center;
+    border: 1px solid var(--cream-dark);
+    box-shadow: 0 2px 12px rgba(26,53,40,0.06);
+    transition: all 0.3s;
+    position: relative; overflow: hidden;
+  }
+  .ekstra-card::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.3s;
+  }
+  .ekstra-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+  .ekstra-card:hover::after { transform: scaleX(1); }
+  .ekstra-icon { font-size: 32px; margin-bottom: 10px; }
+  .ekstra-card h4 { font-size: 14px; font-weight: 700; color: var(--green-deep); }
+
+  /* ─── Pendaftaran ────────────────────────────────────── */
+  .daftar-section {
+    background: linear-gradient(175deg, var(--green-deep) 0%, #0F2218 100%);
+    position: relative; overflow: hidden;
+  }
+  .daftar-section::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23C8972A' stroke-width='0.4' opacity='0.08'%3E%3Cpath d='M40 0 L80 20 L80 60 L40 80 L0 60 L0 20 Z'/%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+  .daftar-header { text-align: center; margin-bottom: 64px; }
+  .daftar-header .section-rule { margin: 18px auto; }
+  .daftar-top { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 32px; }
+  .daftar-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(200,151,42,0.2);
+    border-radius: 20px; padding: 36px 32px;
+  }
+  .daftar-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; font-weight: 700; color: var(--gold);
+    margin-bottom: 24px; padding-bottom: 16px;
+    border-bottom: 1px solid rgba(200,151,42,0.2);
+  }
+  .syarat-list { list-style: none; }
+  .syarat-list li {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 14px; color: rgba(255,255,255,0.8);
+  }
+  .syarat-list li:last-child { border-bottom: none; }
+  .syarat-list li .s-num {
+    width: 24px; height: 24px; flex-shrink: 0;
+    background: rgba(200,151,42,0.15); border: 1px solid rgba(200,151,42,0.3);
+    color: var(--gold); font-size: 11px; font-weight: 700;
+    border-radius: 6px; display: flex; align-items: center; justify-content: center;
+  }
+  .syarat-list li .s-qty {
+    margin-left: auto; color: var(--gold); font-size: 12px; font-weight: 700;
+    white-space: nowrap;
+  }
+  .waktu-box {
+    text-align: center; padding: 24px;
+    background: rgba(200,151,42,0.08);
+    border: 1px solid rgba(200,151,42,0.25);
+    border-radius: 14px; margin-bottom: 20px;
+  }
+  .waktu-dates {
+    font-family: 'Playfair Display', serif;
+    font-size: 56px; font-weight: 900; color: var(--gold);
+    line-height: 1;
+  }
+  .waktu-label { font-size: 13px; color: rgba(255,255,255,0.6); margin-top: 6px; }
+  .tempat-info { font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.9; }
+  .alur-section-inner { margin-top: 32px; }
+  .alur-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .alur-step {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(200,151,42,0.2);
+    border-radius: 20px; padding: 36px 28px;
+    position: relative; overflow: hidden;
+    transition: background 0.3s;
+  }
+  .alur-step:hover { background: rgba(255,255,255,0.08); }
+  .alur-step-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 64px; font-weight: 900;
+    color: rgba(200,151,42,0.12);
+    position: absolute; top: 12px; right: 20px;
+    line-height: 1;
+  }
+  .alur-icon {
+    width: 52px; height: 52px; border-radius: 14px;
+    background: linear-gradient(135deg, rgba(200,151,42,0.2), rgba(200,151,42,0.1));
+    border: 1px solid rgba(200,151,42,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; margin-bottom: 20px;
+  }
+  .alur-step h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px; font-weight: 700; color: var(--gold);
+    margin-bottom: 12px;
+  }
+  .alur-step p { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.7; }
+
+  /* ─── Contact ────────────────────────────────────────── */
+  .contact-section { background: var(--cream-dark); }
+  .contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+  .contact-text .section-rule { margin: 18px 0; }
+  .contact-text p { font-size: 16px; color: var(--text-muted); line-height: 1.8; margin-bottom: 32px; }
+  .contact-cards { display: flex; flex-direction: column; gap: 12px; }
+  .contact-card {
+    display: flex; align-items: center; gap: 16px;
+    background: var(--white); border-radius: 14px;
+    padding: 18px 24px; border: 1px solid var(--cream-dark);
+    box-shadow: 0 2px 12px rgba(26,53,40,0.06);
+    transition: all 0.25s;
+    text-decoration: none;
+  }
+  .contact-card:hover { box-shadow: var(--shadow); transform: translateX(4px); border-color: rgba(200,151,42,0.3); }
+  .contact-card .cc-icon {
+    width: 44px; height: 44px; flex-shrink: 0; border-radius: 12px;
+    background: linear-gradient(135deg, var(--green-deep), var(--green-light));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+  }
+  .contact-card .cc-info {}
+  .contact-card .cc-label { font-size: 12px; color: var(--text-muted); font-weight: 600; letter-spacing: 0.5px; }
+  .contact-card .cc-value { font-size: 16px; font-weight: 700; color: var(--green-deep); }
+  .map-embed {
+    border-radius: 20px; overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    height: 380px; background: var(--cream);
+    border: 1px solid var(--cream-dark);
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 12px; color: var(--text-muted);
+  }
+  .map-placeholder { font-size: 40px; }
+  .map-embed iframe { width: 100%; height: 100%; border: none; }
+
+  /* ─── Footer ─────────────────────────────────────────── */
+  footer {
+    background: var(--green-deep);
+    padding: 56px 0 28px;
+    border-top: 1px solid rgba(200,151,42,0.2);
+  }
+  .footer-inner {
+    display: grid; grid-template-columns: 2fr 1fr 1fr;
+    gap: 48px; margin-bottom: 48px;
+  }
+  .footer-brand {}
+  .footer-logo {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 16px;
+  }
+  .footer-logo .logo-mark {
+    width: 44px; height: 44px; border-radius: 10px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700;
+    color: var(--green-deep);
+  }
+  .footer-logo .brand-name {
+    font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700;
+    color: var(--white); line-height: 1.3;
+  }
+  .footer-logo .brand-sub { font-size: 11px; color: var(--gold); }
+  .footer-desc { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.8; max-width: 300px; }
+  .footer-col h4 {
+    font-size: 12px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 20px;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li {
+    font-size: 14px; color: rgba(255,255,255,0.55);
+    padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+    transition: color 0.2s;
+    cursor: pointer;
+  }
+  .footer-col ul li:hover { color: rgba(255,255,255,0.9); }
+  .footer-col ul li:last-child { border-bottom: none; }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding-top: 24px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .footer-tagline {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px; color: var(--gold); font-style: italic;
+  }
+  .footer-copy { font-size: 12px; color: rgba(255,255,255,0.35); }
+
+  /* ─── Keyframes ──────────────────────────────────────── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50%       { transform: translateX(-50%) translateY(8px); }
+  }
+
+  /* ─── Responsive ─────────────────────────────────────── */
+  @media (max-width: 1024px) {
+    .visimisi-grid { grid-template-columns: 1fr; }
+    .jalur-grid { grid-template-columns: 1fr; }
+    .jalur-card.full { grid-column: auto; }
+    .uni-grid { grid-template-columns: repeat(2, 1fr); }
+    .fasilitas-inner { grid-template-columns: 1fr; gap: 48px; }
+    .ekstra-grid { grid-template-columns: repeat(3, 1fr); }
+    .daftar-top { grid-template-columns: 1fr; }
+    .alur-steps { grid-template-columns: 1fr; }
+    .contact-inner { grid-template-columns: 1fr; }
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 768px) {
+    section { padding: 72px 0; }
+    .container { padding: 0 24px; }
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .hero { padding: 90px 24px 56px; }
+    .fasilitas-visual { grid-template-columns: 1fr 1fr; }
+    .ekstra-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+    .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+    .hero-scroll { display: none; }
+  }
+  @media (max-width: 480px) {
+    .ekstra-grid { grid-template-columns: repeat(2, 1fr); }
+    .uni-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ NAVIGATION ═══════════════════════════════════════ -->
+<nav id="navbar">
+  <div class="nav-logo">
+    <div class="logo-mark">AF</div>
+    <div class="logo-text">
+      Pondok Pesantren Al-Falah
+      <div class="logo-sub">Lampung Tengah</div>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#visimisi">Visi & Misi</a></li>
+    <li><a href="#pendidikan">Pendidikan</a></li>
+    <li><a href="#fasilitas">Fasilitas</a></li>
+    <li><a href="#ekstra">Ekskul</a></li>
+    <li><a href="#pendaftaran">Pendaftaran</a></li>
+    <li><a href="#kontak" class="nav-cta">Daftar Sekarang</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#visimisi" onclick="closeMenu()">Visi & Misi</a>
+  <a href="#pendidikan" onclick="closeMenu()">Jalur Pendidikan</a>
+  <a href="#fasilitas" onclick="closeMenu()">Fasilitas</a>
+  <a href="#ekstra" onclick="closeMenu()">Ekstrakurikuler</a>
+  <a href="#pendaftaran" onclick="closeMenu()">Pendaftaran</a>
+  <a href="#kontak" onclick="closeMenu()">Kontak</a>
+</div>
+
+<!-- ═══ HERO ══════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+      Penerimaan Peserta Didik Baru — Setiap Tahun Pelajaran
+    </div>
+    <h1 class="hero-title">Yayasan Queen<br /><span>Al-Falah</span> Lampung Tengah</h1>
+    <p class="hero-subtitle">Membangun Generasi Berilmu, Beriman, dan Berakhlakul Karimah</p>
+    <p class="hero-address">📍 Jl. Minak Brajo Kutan, Desa Teluk Dalem Ilir, Kec. Rumbia, Kab. Lampung Tengah 34157</p>
+    <div class="hero-units">
+      <div class="unit-tag">🕌 Pondok Pesantren Al-Falah</div>
+      <div class="unit-tag">🎓 Universitas Terbuka (SALUT)</div>
+      <div class="unit-tag">🏫 SMK Al-Falah</div>
+      <div class="unit-tag">📚 SMP Al-Falah</div>
+    </div>
+    <a href="#pendaftaran" class="hero-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      Daftar Sekarang
+    </a>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<!-- ═══ VISI & MISI ═══════════════════════════════════════ -->
+<section class="visimisi-section" id="visimisi">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Identitas Lembaga</div>
+      <h2 class="section-title">Visi & Misi</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="visimisi-grid">
+      <div class="vm-card reveal reveal-delay-1">
+        <div class="vm-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+        </div>
+        <h3>Visi</h3>
+        <p>Mewujudkan Santri yang memiliki intelektual, Skill, Iman dan Taqwa, serta Berakhlakul Karimah Berdasarkan Ahlussunnah Wal Jama'ah.</p>
+      </div>
+      <div class="vm-card reveal reveal-delay-2">
+        <div class="vm-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 11.75c-.69 0-1.25.56-1.25 1.25s.56 1.25 1.25 1.25 1.25-.56 1.25-1.25-.56-1.25-1.25-1.25zm6 0c-.69 0-1.25.56-1.25 1.25s.56 1.25 1.25 1.25 1.25-.56 1.25-1.25-.56-1.25-1.25-1.25zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8 0-.29.02-.58.05-.86 2.36-1.05 4.23-2.98 5.21-5.37C11.07 8.33 14.05 10 17.42 10c.78 0 1.53-.09 2.25-.26.21.71.33 1.47.33 2.26 0 4.41-3.59 8-8 8z"/></svg>
+        </div>
+        <h3>Misi</h3>
+        <ol>
+          <li>Menyelenggarakan pendidikan bermutu dan berdaya saing.</li>
+          <li>Meningkatkan pendidikan yang berwawasan sains dan teknologi informasi Modern yang islami.</li>
+          <li>Mengoptimalkan santri dalam kegiatan intrakurikuler dan ekstrakurikuler.</li>
+          <li>Mengembangkan pola pembelajaran serta managemen profesional dan religius.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ JALUR PENDIDIKAN ══════════════════════════════════ -->
+<section class="jalur-section" id="pendidikan">
+  <div class="container">
+    <div class="jalur-header reveal">
+      <div class="section-label" style="color:var(--gold-light)">Program Unggulan</div>
+      <h2 class="section-title light">Jalur Pendidikan</h2>
+      <div class="section-rule"></div>
+      <p class="section-desc light">Tersedia berbagai jalur pendidikan formal dan non-formal yang terintegrasi dalam satu lingkungan pesantren yang kondusif.</p>
+    </div>
+    <div class="jalur-grid">
+      <!-- Non Formal -->
+      <div class="jalur-card reveal reveal-delay-1">
+        <div class="jalur-num">1</div>
+        <h3>Pendidikan Non Formal</h3>
+        <ul class="jalur-list">
+          <li>Madrasah Salafiyah</li>
+          <li>Tahfidz Al Qur'an</li>
+        </ul>
+      </div>
+      <!-- SMP -->
+      <div class="jalur-card reveal reveal-delay-2">
+        <div class="jalur-num">2</div>
+        <h3>Pendidikan Formal — SMP</h3>
+        <div class="jalur-sub">Sekolah Menengah Pertama</div>
+        <ul class="jalur-list">
+          <li>SMP Al-Falah <span>— Terakreditasi</span></li>
+        </ul>
+      </div>
+      <!-- SMK -->
+      <div class="jalur-card reveal reveal-delay-1">
+        <div class="jalur-num">3</div>
+        <h3>Pendidikan Formal — SMK</h3>
+        <div class="jalur-sub">Jurusan A: Otomatisasi Tata Kelola Perkantoran</div>
+        <ul class="jalur-list">
+          <li>Excellent Class</li>
+          <li>Medium Class</li>
+        </ul>
+        <div class="jalur-sub">Jurusan B</div>
+        <ul class="jalur-list">
+          <li>Tata Busana</li>
+        </ul>
+      </div>
+      <!-- Universitas -->
+      <div class="jalur-card reveal reveal-delay-2">
+        <div class="jalur-num">4</div>
+        <h3>Universitas Terbuka (SALUT) Al-Falah</h3>
+        <div class="jalur-sub">Fakultas Tersedia</div>
+        <div class="uni-grid">
+          <div class="uni-item"><span>S1</span>Fakultas Ekonomi</div>
+          <div class="uni-item"><span>S1</span>Fak. Sains & Teknologi</div>
+          <div class="uni-item"><span>S1</span>FKIP</div>
+          <div class="uni-item"><span>S1</span>FHISIP</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FASILITAS ══════════════════════════════════════════ -->
+<section class="fasilitas-section" id="fasilitas">
+  <div class="container">
+    <div class="fasilitas-inner">
+      <div class="fasilitas-text reveal">
+        <div class="section-label">Infrastruktur</div>
+        <h2 class="section-title">Fasilitas<br />Unggulan</h2>
+        <div class="section-rule"></div>
+        <p class="section-desc">Didukung fasilitas modern dan memadai untuk mendukung proses belajar mengajar yang optimal dan nyaman.</p>
+        <ul class="fas-list">
+          <li class="fas-item"><div class="fas-num">1</div><span>Gedung milik sendiri</span></li>
+          <li class="fas-item"><div class="fas-num">2</div><span>Asrama gedung lantai 3</span></li>
+          <li class="fas-item"><div class="fas-num">3</div><span>Sekolah gedung lantai 3</span></li>
+          <li class="fas-item"><div class="fas-num">4</div><span>POSKESTREN (Pos Kesehatan Pesantren)</span></li>
+          <li class="fas-item"><div class="fas-num">5</div><span>Gedung ber-AC</span></li>
+          <li class="fas-item"><div class="fas-num">6</div><span>Laboratorium Komputer</span></li>
+          <li class="fas-item"><div class="fas-num">7</div><span>Akses Internet</span></li>
+          <li class="fas-item"><div class="fas-num">8</div><span>Lapangan olah raga</span></li>
+          <li class="fas-item"><div class="fas-num">9</div><span>Koperasi santri</span></li>
+        </ul>
+      </div>
+      <div class="fasilitas-visual reveal reveal-delay-2">
+        <div class="fas-card"><div class="icon">🏛️</div><h4>Gedung Bertingkat</h4></div>
+        <div class="fas-card"><div class="icon">🛏️</div><h4>Asrama Modern</h4></div>
+        <div class="fas-card"><div class="icon">💻</div><h4>Lab Komputer</h4></div>
+        <div class="fas-card"><div class="icon">📶</div><h4>Internet</h4></div>
+        <div class="fas-card"><div class="icon">🏥</div><h4>POSKESTREN</h4></div>
+        <div class="fas-card"><div class="icon">❄️</div><h4>Gedung Ber-AC</h4></div>
+        <div class="fas-card"><div class="icon">⚽</div><h4>Lapangan Olahraga</h4></div>
+        <div class="fas-card"><div class="icon">🏪</div><h4>Koperasi</h4></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ EKSTRAKURIKULER ═══════════════════════════════════ -->
+<section class="ekstra-section" id="ekstra">
+  <div class="container">
+    <div class="ekstra-header reveal">
+      <div class="section-label">Pengembangan Diri</div>
+      <h2 class="section-title">Keterampilan &<br />Ekstrakurikuler</h2>
+      <div class="section-rule"></div>
+      <p class="section-desc" style="margin: 0 auto;">12 program kegiatan untuk mengembangkan bakat dan potensi santri secara holistik.</p>
+    </div>
+    <div class="ekstra-grid">
+      <div class="ekstra-card reveal reveal-delay-1"><div class="ekstra-icon">🗣️</div><h4>Muhadatsah</h4></div>
+      <div class="ekstra-card reveal reveal-delay-1"><div class="ekstra-icon">📖</div><h4>Fahmil Qur'an</h4></div>
+      <div class="ekstra-card reveal reveal-delay-2"><div class="ekstra-icon">📜</div><h4>Qiro'atul Kutub</h4></div>
+      <div class="ekstra-card reveal reveal-delay-2"><div class="ekstra-icon">📱</div><h4>Digital Marketing</h4></div>
+      <div class="ekstra-card reveal reveal-delay-3"><div class="ekstra-icon">💼</div><h4>Kewirausahaan</h4></div>
+      <div class="ekstra-card reveal reveal-delay-3"><div class="ekstra-icon">🧵</div><h4>Menjahit</h4></div>
+      <div class="ekstra-card reveal reveal-delay-1"><div class="ekstra-icon">🏭</div><h4>Magang</h4></div>
+      <div class="ekstra-card reveal reveal-delay-1"><div class="ekstra-icon">🌿</div><h4>IPNU – IPPNU</h4></div>
+      <div class="ekstra-card reveal reveal-delay-2"><div class="ekstra-icon">⚜️</div><h4>Pramuka</h4></div>
+      <div class="ekstra-card reveal reveal-delay-2"><div class="ekstra-icon">🏅</div><h4>Olah Raga</h4></div>
+      <div class="ekstra-card reveal reveal-delay-3"><div class="ekstra-icon">🎵</div><h4>Musik Islami</h4></div>
+      <div class="ekstra-card reveal reveal-delay-3"><div class="ekstra-icon">🥁</div><h4>Hadroh</h4></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PENDAFTARAN ════════════════════════════════════════ -->
+<section class="daftar-section" id="pendaftaran">
+  <div class="container">
+    <div class="daftar-header reveal">
+      <div class="section-label" style="color:var(--gold-light)">Informasi PPDB</div>
+      <h2 class="section-title light">Pendaftaran Peserta<br />Didik Baru</h2>
+      <div class="section-rule"></div>
+      <p class="section-desc light">Daftarkan putra/putri Anda dan bergabunglah bersama ribuan santri yang telah merasakan pendidikan berkualitas di Al-Falah.</p>
+    </div>
+    <div class="daftar-top">
+      <!-- Syarat -->
+      <div class="daftar-card reveal reveal-delay-1">
+        <h3>📋 Syarat Pendaftaran</h3>
+        <ul class="syarat-list">
+          <li><div class="s-num">1</div><span>Mengisi Formulir Pendaftaran</span><span class="s-qty">2 Lbr</span></li>
+          <li><div class="s-num">2</div><span>FC Ijazah / Surat Keterangan Lulus</span><span class="s-qty">2 Lbr</span></li>
+          <li><div class="s-num">3</div><span>FC KTP Orang Tua</span><span class="s-qty">2 Lbr</span></li>
+          <li><div class="s-num">4</div><span>FC Kartu Keluarga (KK)</span><span class="s-qty">2 Lbr</span></li>
+          <li><div class="s-num">5</div><span>FC Akta Kelahiran</span><span class="s-qty">2 Lbr</span></li>
+          <li><div class="s-num">6</div><span>Foto 3×4</span><span class="s-qty">2 Lbr</span></li>
+          <li><div class="s-num">7</div><span>FC Kartu KIP/PKH/KPS (Bila Memiliki)</span><span class="s-qty">2 Lbr</span></li>
+          <li><div class="s-num">8</div><span>FC Kartu BPJS (Bila Memiliki)</span><span class="s-qty">2 Lbr</span></li>
+          <li><div class="s-num">9</div><span>Materai @10.000</span><span class="s-qty">1 Lbr</span></li>
+        </ul>
+      </div>
+      <!-- Waktu & Tempat -->
+      <div class="daftar-card reveal reveal-delay-2">
+        <h3>📅 Waktu Pendaftaran</h3>
+        <div class="waktu-box">
+          <div class="waktu-dates">01 — 15</div>
+          <div class="waktu-label">Mei s/d Juli — Setiap Tahun Pelajaran</div>
+        </div>
+        <h3 style="margin-top:28px;">📍 Tempat Pendaftaran</h3>
+        <div class="tempat-info">
+          Sekretariat Pelayanan Terpadu Satu Pintu<br />
+          <strong style="color:var(--gold)">Yayasan Queen Al-Falah Lampung Tengah</strong><br />
+          Jl. Minak Brajo Kutan Desa Teluk Dalem Ilir<br />
+          Kecamatan Rumbia, Kabupaten Lampung Tengah
+        </div>
+      </div>
+    </div>
+    <!-- Alur -->
+    <div class="alur-section-inner">
+      <div class="reveal" style="margin-bottom:32px;">
+        <div class="section-label" style="color:var(--gold-light)">Tahapan</div>
+        <h3 style="font-family:'Playfair Display',serif; font-size:28px; color:var(--white); font-weight:700;">Alur Pendaftaran</h3>
+      </div>
+      <div class="alur-steps">
+        <div class="alur-step reveal reveal-delay-1">
+          <div class="alur-step-num">1</div>
+          <div class="alur-icon">📄</div>
+          <h4>Persiapan Berkas</h4>
+          <p>Calon siswa/i mempersiapkan seluruh berkas persyaratan sebelum mendaftar. Berkas tersebut nantinya digunakan untuk pengisian data diri di dalam formulir.</p>
+        </div>
+        <div class="alur-step reveal reveal-delay-2">
+          <div class="alur-step-num">2</div>
+          <div class="alur-icon">✏️</div>
+          <h4>Daftar & Isi Formulir</h4>
+          <p>Calon siswa/i bersama orang tua atau wali mengisi formulir yang bisa didapat di sekretariat pendaftaran.</p>
+        </div>
+        <div class="alur-step reveal reveal-delay-3">
+          <div class="alur-step-num">3</div>
+          <div class="alur-icon">📬</div>
+          <h4>Penyerahan Berkas</h4>
+          <p>Setelah selesai mengisi dan melengkapi formulir pendaftaran, calon siswa/i dapat menyetorkan berkas tersebut ke panitia PPDB di sekretariat pendaftaran.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ KONTAK ════════════════════════════════════════════ -->
+<section class="contact-section" id="kontak">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="contact-text reveal">
+        <div class="section-label">Hubungi Kami</div>
+        <h2 class="section-title">Contact Person</h2>
+        <div class="section-rule"></div>
+        <p>Hubungi kami untuk informasi lebih lanjut mengenai pendaftaran, fasilitas, dan program pendidikan yang tersedia di Yayasan Queen Al-Falah.</p>
+        <div class="contact-cards">
+          <a href="tel:085664605759" class="contact-card">
+            <div class="cc-icon">🏠</div>
+            <div class="cc-info">
+              <div class="cc-label">Pondok Putra</div>
+              <div class="cc-value">0856 6460 5759</div>
+            </div>
+          </a>
+          <a href="tel:085839315552" class="contact-card">
+            <div class="cc-icon">🏡</div>
+            <div class="cc-info">
+              <div class="cc-label">Pondok Putri</div>
+              <div class="cc-value">0858 3931 5552</div>
+            </div>
+          </a>
+          <a href="tel:085811559948" class="contact-card">
+            <div class="cc-icon">📚</div>
+            <div class="cc-info">
+              <div class="cc-label">SMP Al-Falah</div>
+              <div class="cc-value">0858 1155 9948</div>
+            </div>
+          </a>
+          <a href="tel:085269437658" class="contact-card">
+            <div class="cc-icon">🔧</div>
+            <div class="cc-info">
+              <div class="cc-label">SMK Al-Falah</div>
+              <div class="cc-value">0852 6943 7658</div>
+            </div>
+          </a>
+          <a href="tel:085658959732" class="contact-card">
+            <div class="cc-icon">🎓</div>
+            <div class="cc-info">
+              <div class="cc-label">Universitas Terbuka (SALUT)</div>
+              <div class="cc-value">0856 5895 9732</div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="map-embed">
+          <iframe
+            src="https://maps.google.com/maps?q=Pondok+Pesantren+Al-Falah+Rumbia+Lampung+Tengah&output=embed"
+            allowfullscreen loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Lokasi Pondok Pesantren Al-Falah"
+          ></iframe>
+        </div>
+        <div style="margin-top:20px; padding:20px 24px; background:var(--white); border-radius:14px; border:1px solid var(--cream-dark); box-shadow:0 2px 12px rgba(26,53,40,0.06);">
+          <div style="font-size:12px; color:var(--text-muted); font-weight:700; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px;">Alamat Lengkap</div>
+          <div style="font-size:14px; color:var(--text-mid); line-height:1.8;">Jl. Minak Brajo Kutan, Desa Teluk Dalem Ilir,<br />Kecamatan Rumbia, Kabupaten Lampung Tengah,<br />Provinsi Lampung 34157</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ════════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <div class="logo-mark">AF</div>
+          <div>
+            <div class="brand-name">Pondok Pesantren Al-Falah</div>
+            <div class="brand-sub">Yayasan Queen Al-Falah Lampung Tengah</div>
+          </div>
+        </div>
+        <p class="footer-desc">Lembaga pendidikan Islam terpadu yang berkomitmen mencetak generasi berilmu, beriman, dan berakhlakul karimah berdasarkan Ahlussunnah Wal Jama'ah.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Unit Pendidikan</h4>
+        <ul>
+          <li>Pondok Pesantren</li>
+          <li>SMP Al-Falah</li>
+          <li>SMK Al-Falah</li>
+          <li>SALUT Al-Falah</li>
+          <li>Madrasah Salafiyah</li>
+          <li>Tahfidz Al-Qur'an</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Informasi</h4>
+        <ul>
+          <li onclick="document.getElementById('visimisi').scrollIntoView({behavior:'smooth'})">Visi & Misi</li>
+          <li onclick="document.getElementById('pendidikan').scrollIntoView({behavior:'smooth'})">Jalur Pendidikan</li>
+          <li onclick="document.getElementById('fasilitas').scrollIntoView({behavior:'smooth'})">Fasilitas</li>
+          <li onclick="document.getElementById('ekstra').scrollIntoView({behavior:'smooth'})">Ekstrakurikuler</li>
+          <li onclick="document.getElementById('pendaftaran').scrollIntoView({behavior:'smooth'})">Pendaftaran</li>
+          <li onclick="document.getElementById('kontak').scrollIntoView({behavior:'smooth'})">Kontak</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-tagline">"Ayo Ngaji, Ayo Sekolah, Ayo Kuliah di Al-Falah Rumbia"</div>
+      <div class="footer-copy">© 2025 Yayasan Queen Al-Falah Lampung Tengah. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ─── Navbar Scroll ─────────────────────────────────────
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // ─── Mobile Menu ───────────────────────────────────────
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+  }
+
+  // ─── Reveal on Scroll ──────────────────────────────────
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
