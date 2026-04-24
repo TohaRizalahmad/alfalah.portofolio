@@ -1634,8 +1634,7 @@
         grid-template-columns: 1fr;
       }
 
-      .grid-gallery,
-      .fasilitas-gallery {
+      .grid-gallery {
         grid-template-columns: repeat(2, 1fr);
       }
 
@@ -1675,8 +1674,15 @@
         grid-template-columns: 1fr;
       }
 
+
+
       .fasilitas-gallery {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+      }
+
+      .fasilitas-name {
+        font-size: 11px !important;
       }
 
       .grid-gallery,
@@ -1718,9 +1724,13 @@
         font-size: 14px;
       }
 
-      .grid-gallery,
-      .super-combo,
       .fasilitas-gallery {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+      }
+
+      .grid-gallery,
+      .super-combo {
         grid-template-columns: 1fr;
       }
     }
