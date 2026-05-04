@@ -16,45 +16,52 @@
   <link rel="icon" type="image/png" href="img/Properti Utama/Logo Browser.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Berkshire+Swash&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 
     :root {
       --primary:      #28443F;
-      --primary-dark: #1b2f2b;
-      --primary-mid:  #2f5248;
-      --secondary:    #FFFCEF;
-      --accent:       #D4AF37;
-      --accent-soft:  rgba(212,175,55,0.13);
-      --accent-border:rgba(212,175,55,0.35);
-      --text-dark:    #1a1a1a;
-      --text-mid:     #556b5e;
+      --primary-dark: #1A3528;
+      --primary-mid:  #3A6055;
+      --secondary:    #F8F4EB;
+      --secondary-dark: #EDE8DA;
+      --accent:       #C8972A;
+      --accent-soft:  rgba(200, 151, 42, 0.13);
+      --accent-border:rgba(200, 151, 42, 0.35);
+      --text-dark:    #1A1A1A;
+      --text-mid:     #3D4A45;
       --text-light:   #fff;
-      --radius:       14px;
-      --radius-sm:    8px;
-      --shadow-card:  0 4px 20px rgba(0,0,0,0.09);
-      --shadow-hover: 0 18px 50px rgba(0,0,0,0.18);
+      --radius:       20px;
+      --radius-sm:    10px;
+      --shadow-card:  0 4px 32px rgba(26,53,40,0.12);
+      --shadow-hover: 0 12px 60px rgba(26,53,40,0.18);
       --transition:   0.32s ease;
     }
 
     html { scroll-behavior:smooth; overflow-x:hidden; }
-    body { font-family:'Poppins',sans-serif; color:var(--text-dark); background:var(--secondary); overflow-x:hidden; }
+    body { font-family:'Nunito Sans',sans-serif; color:var(--text-dark); background:var(--secondary); overflow-x:hidden; }
     img  { max-width:100%; height:auto; display:block; }
 
     /* ── HERO ── */
-    .hero { width:100%; position:relative; background:var(--primary-dark); overflow:hidden; }
-    .hero img { width:100%; height:auto; display:block; object-fit:contain; object-position:center; }
-    .hero::before, .hero::after {
-      content:''; position:absolute; left:0; right:0; height:3px;
-      background:linear-gradient(90deg,transparent 0%,var(--accent) 30%,var(--accent) 70%,transparent 100%);
+    .hero {
+      width:100%; position:relative;
+      background: linear-gradient(160deg, var(--primary-dark) 0%, var(--primary) 55%, #1E3A30 100%);
+      overflow:hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23C8972A' stroke-width='0.5' opacity='0.12'%3E%3Cpath d='M40 0 L80 20 L80 60 L40 80 L0 60 L0 20 Z'/%3E%3Cpath d='M40 12 L68 26 L68 54 L40 68 L12 54 L12 26 Z'/%3E%3Cpath d='M40 24 L56 32 L56 48 L40 56 L24 48 L24 32 Z'/%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .hero img { width:100%; height:auto; display:block; object-fit:contain; object-position:center; position:relative; z-index:1; }
+    .hero::after {
+      content:''; position:absolute; bottom:0; left:0; right:0; height:80px;
+      background: linear-gradient(to bottom, transparent, var(--secondary));
       z-index:2;
     }
-    .hero::before { top:0; }
-    .hero::after  { bottom:0; }
 
     /* ── SECTION HEADER ── */
     .sec-head { text-align:center; margin-bottom:52px; }
@@ -67,6 +74,7 @@
     }
     .sec-eyebrow.dark { color:var(--accent); background:rgba(212,175,55,0.08); border-color:rgba(212,175,55,0.25); }
     .sec-head h2 {
+      font-family:'Playfair Display',serif;
       font-size:clamp(22px,4vw,36px); font-weight:700;
       color:var(--primary); margin-bottom:16px; line-height:1.25; letter-spacing:-0.3px;
     }
@@ -96,7 +104,7 @@
 
     .edu-card-img {
       width:100%; height:180px;
-      object-fit:contain; background:#f5f4ef;
+      object-fit:contain; background:var(--secondary-dark);
       padding:22px; display:block;
       filter:grayscale(8%);
       transition:filter var(--transition);
@@ -104,7 +112,7 @@
     .edu-card:hover .edu-card-img { filter:grayscale(0%); }
 
     .edu-dual-img {
-      display:flex; height:180px; background:#f5f4ef;
+      display:flex; height:180px; background:var(--secondary-dark);
     }
     .edu-dual-img img {
       width:50%; height:100%;
@@ -112,7 +120,7 @@
       filter:grayscale(8%);
       transition:filter var(--transition);
     }
-    .edu-dual-img img:last-child { border-left:1px solid #e8e7e0; }
+    .edu-dual-img img:last-child { border-left:1px solid rgba(200, 151, 42, 0.1); }
     .edu-card:hover .edu-dual-img img { filter:grayscale(0%); }
 
     .edu-card-info {
@@ -134,21 +142,18 @@
     /* ── CTA SECTION ── */
     .cta-section {
       padding:90px 8%;
-      background:linear-gradient(160deg,#0d1f1c 0%,var(--primary-dark) 50%,#0d1f1c 100%);
+      background: linear-gradient(175deg, var(--primary-dark) 0%, #0F2218 100%);
       position:relative; overflow:hidden; text-align:center;
     }
     .cta-section::before {
       content:''; position:absolute; inset:0;
-      background:
-        radial-gradient(ellipse 55% 70% at 15% 50%,rgba(212,175,55,0.09) 0%,transparent 70%),
-        radial-gradient(ellipse 55% 70% at 85% 50%,rgba(212,175,55,0.09) 0%,transparent 70%),
-        radial-gradient(ellipse 40% 40% at 50% 0%, rgba(212,175,55,0.06) 0%,transparent 60%);
+      background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23C8972A' stroke-width='0.4' opacity='0.08'%3E%3Cpath d='M40 0 L80 20 L80 60 L40 80 L0 60 L0 20 Z'/%3E%3C/g%3E%3C/svg%3E");
       pointer-events:none;
     }
     .cta-section::after {
       content:''; position:absolute; top:0; left:0; right:0; height:2px;
       background:linear-gradient(90deg,transparent 0%,var(--accent) 30%,#fff8e1 50%,var(--accent) 70%,transparent 100%);
-      opacity:0.7;
+      opacity:0.4;
     }
     .cta-inner { position:relative; z-index:1; max-width:780px; margin:0 auto; }
     .cta-label {
@@ -169,6 +174,7 @@
       50%      { opacity:0.4; transform:scale(0.6); }
     }
     .cta-inner h2 {
+      font-family:'Playfair Display',serif;
       font-size:clamp(24px,4.5vw,40px); font-weight:800;
       color:var(--text-light); margin-bottom:14px;
       line-height:1.2; letter-spacing:-0.5px;
@@ -184,8 +190,8 @@
     }
     .cta-btn {
       display:flex; flex-direction:column; align-items:center;
-      font-family:'Poppins',sans-serif; text-decoration:none;
-      border-radius:16px; padding:24px 20px 20px;
+      font-family:'Nunito Sans',sans-serif; text-decoration:none;
+      border-radius:20px; padding:24px 20px 20px;
       transition:all 0.35s ease; position:relative; overflow:hidden; cursor:pointer;
       height:100%;
     }
@@ -202,7 +208,7 @@
       margin-bottom:14px; transition:transform 0.3s ease; flex-shrink:0;
     }
     .cta-btn:hover .cta-btn-icon-wrap { transform:scale(1.12) translateY(-2px); }
-    .cta-btn-title { font-size:14px; font-weight:700; letter-spacing:0.2px; margin-bottom:5px; line-height:1.3; }
+    .cta-btn-title { font-family:'Playfair Display',serif; font-size:14px; font-weight:700; letter-spacing:0.2px; margin-bottom:5px; line-height:1.3; }
     .cta-btn-desc  { font-size:11px; font-weight:400; line-height:1.5; opacity:0.75; margin-bottom:14px; flex-grow:1; }
     .cta-btn-arrow {
       width:32px; height:32px; border-radius:8px;
@@ -210,30 +216,30 @@
       margin-top:auto;
     }
     .cta-btn--brosur  { background:rgba(255,255,255,0.05); border:1.5px solid rgba(255,255,255,0.15); color:#fff; }
-    .cta-btn--brosur:hover  { background:rgba(255,255,255,0.1); border-color:rgba(212,175,55,0.5); transform:translateY(-5px); box-shadow:0 16px 40px rgba(0,0,0,0.3); }
-    .cta-btn--brosur .cta-btn-icon-wrap { background:rgba(212,175,55,0.15); border:1px solid rgba(212,175,55,0.3); }
+    .cta-btn--brosur:hover  { background:rgba(255,255,255,0.1); border-color:var(--accent-border); transform:translateY(-5px); box-shadow:0 16px 40px rgba(0,0,0,0.3); }
+    .cta-btn--brosur .cta-btn-icon-wrap { background:rgba(200, 151, 42, 0.15); border:1px solid var(--accent-border); }
     .cta-btn--brosur .cta-btn-arrow     { background:rgba(255,255,255,0.08); }
-    .cta-btn--offline { background:rgba(40,68,63,0.6); border:1.5px solid rgba(40,200,140,0.25); color:#fff; }
-    .cta-btn--offline:hover { background:rgba(40,68,63,0.9); border-color:rgba(40,200,140,0.55); transform:translateY(-5px); box-shadow:0 16px 40px rgba(40,68,63,0.5); }
-    .cta-btn--offline .cta-btn-icon-wrap { background:rgba(40,200,140,0.15); border:1px solid rgba(40,200,140,0.3); }
-    .cta-btn--offline .cta-btn-arrow     { background:rgba(40,200,140,0.15); }
-    .cta-btn--online  { background:linear-gradient(135deg,var(--accent) 0%,#c8951f 100%); border:1.5px solid rgba(212,175,55,0.5); color:#1a2e2b; }
-    .cta-btn--online:hover  { background:linear-gradient(135deg,#e8c840 0%,#d4a020 100%); transform:translateY(-5px); box-shadow:0 20px 50px rgba(212,175,55,0.45); }
-    .cta-btn--online .cta-btn-icon-wrap { background:rgba(26,46,43,0.18); border:1px solid rgba(26,46,43,0.2); }
-    .cta-btn--online .cta-btn-title, .cta-btn--online .cta-btn-desc { color:#1a2e2b; }
-    .cta-btn--online .cta-btn-arrow { background:rgba(26,46,43,0.15); }
+
+    .cta-btn--offline { background:var(--primary-mid); border:1.5px solid rgba(58, 96, 85, 0.3); color:#fff; }
+    .cta-btn--offline:hover { background:var(--primary); border-color:var(--accent-border); transform:translateY(-5px); box-shadow:0 16px 40px rgba(26,53,40,0.25); }
+    .cta-btn--offline .cta-btn-icon-wrap { background:rgba(255, 255, 255, 0.15); border:1px solid rgba(255, 255, 255, 0.2); }
+    .cta-btn--offline .cta-btn-arrow     { background:rgba(255, 255, 255, 0.15); }
+
+    .cta-btn--online  { background:linear-gradient(135deg,var(--accent) 0%,#A67C21 100%); border:1.5px solid rgba(200, 151, 42, 0.5); color:var(--primary-dark); }
+    .cta-btn--online:hover  { background:linear-gradient(135deg,#E0B84A 0%,var(--accent) 100%); transform:translateY(-5px); box-shadow:0 20px 50px rgba(200, 151, 42, 0.35); }
+    .cta-btn--online .cta-btn-icon-wrap { background:rgba(26,53,40,0.12); border:1px solid rgba(26,53,40,0.15); }
+    .cta-btn--online .cta-btn-title, .cta-btn--online .cta-btn-desc { color:var(--primary-dark); }
+    .cta-btn--online .cta-btn-arrow { background:rgba(26,53,40,0.1); }
 
     /* ── UNIT PENDIDIKAN ── */
     .unit-section {
       padding:80px 8% 90px;
-      background:var(--primary);
+      background: linear-gradient(160deg, var(--primary-dark) 0%, var(--primary) 100%);
       position:relative; overflow:hidden;
     }
     .unit-section::before {
       content:''; position:absolute; inset:0;
-      background:
-        radial-gradient(ellipse 70% 50% at 50% 100%,rgba(212,175,55,0.06) 0%,transparent 60%),
-        radial-gradient(ellipse 50% 40% at 10%  20%,rgba(255,255,255,0.02) 0%,transparent 60%);
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23C8972A' stroke-width='0.4' opacity='0.1'%3E%3Cpath d='M30 0 L60 15 L60 45 L30 60 L0 45 L0 15 Z'/%3E%3C/g%3E%3C/svg%3E");
       pointer-events:none;
     }
     .unit-grid {
@@ -250,7 +256,7 @@
     /* ── FORMAL LAINNYA ── */
     .formal-section {
       padding:80px 8% 90px;
-      background:#fff;
+      background:var(--secondary);
       position:relative;
     }
     .formal-section::before {
@@ -276,7 +282,7 @@
       display:grid; grid-template-columns:2fr 1fr 1fr;
       gap:40px; margin-bottom:60px;
     }
-    .footer-identity h2 { font-size:28px; font-weight:700; margin-bottom:20px; letter-spacing:-0.5px; }
+    .footer-identity h2 { font-family:'Playfair Display',serif; font-size:28px; font-weight:700; margin-bottom:20px; letter-spacing:-0.5px; }
     .footer-identity p  { font-size:16px; line-height:1.8; color:#fff; max-width:500px; }
     .social-list-extended, .utility-list-extended { list-style:none; padding:0; }
     .social-list-extended li, .utility-list-extended li { margin-bottom:12px; }
@@ -403,7 +409,7 @@
       <div class="cta-buttons">
         <a href="pages/Brosur.html" class="cta-btn cta-btn--brosur" id="btn-brosur">
           <div class="cta-btn-icon-wrap">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
               <polyline points="14 2 14 8 20 8"/>
               <line x1="16" y1="13" x2="8" y2="13"/>
@@ -420,7 +426,7 @@
 
         <a href="pages/form-online.html" class="cta-btn cta-btn--offline" id="btn-online-1">
           <div class="cta-btn-icon-wrap">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#66CC99" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
               <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
             </svg>
@@ -428,13 +434,13 @@
           <span class="cta-btn-title">Daftar Online</span>
           <span class="cta-btn-desc">Pendaftaran Santri Secara Online</span>
           <div class="cta-btn-arrow">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#66CC99" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </div>
         </a>
 
         <a href="pages/form-online.html" class="cta-btn cta-btn--online" id="btn-online-2">
           <div class="cta-btn-icon-wrap">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1a2e2b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary-dark)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
               <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
             </svg>
@@ -442,7 +448,7 @@
           <span class="cta-btn-title">Daftar Offline</span>
           <span class="cta-btn-desc">Pendaftaran Santri Secara Offline</span>
           <div class="cta-btn-arrow">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1a2e2b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary-dark)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </div>
         </a>
       </div>
@@ -475,7 +481,7 @@
         <span class="cta-btn-title">PPRQ AL FALAH</span>
         <span class="cta-btn-desc">Pondok Pesantren Roudlotul Qur'an</span>
         <div class="cta-btn-arrow">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </div>
       </a>
 
@@ -486,15 +492,15 @@
         <span class="cta-btn-title">RTQ AL FALAH</span>
         <span class="cta-btn-desc">Raudhatul Taklimil Qur`an</span>
         <div class="cta-btn-arrow">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1a2e2b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary-dark)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </div>
       </a>
     </div>
   </section>
 
-  <section class="formal-section unit-section" style="background: var(--primary);">
-    <div class="sec-head light">
-      <div class="sec-eyebrow dark fade-up">Lembaga Mitra</div>
+  <section class="formal-section">
+    <div class="sec-head">
+      <div class="sec-eyebrow fade-up">Lembaga Mitra</div>
       <h2 class="fade-up">Pendidikan Formal Lainnya</h2>
       <div class="sec-underline fade-up"></div>
     </div>
@@ -508,7 +514,7 @@
         <span class="cta-btn-title">SMP &amp; SMK AL FALAH</span>
         <span class="cta-btn-desc">Sekolah Menengah Pertama &amp; Kejuruan</span>
         <div class="cta-btn-arrow">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </div>
       </a>
 
@@ -519,7 +525,7 @@
         <span class="cta-btn-title">UNIVERSITAS TERBUKA</span>
         <span class="cta-btn-desc">Sentra Layanan UT Al Falah</span>
         <div class="cta-btn-arrow">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1a2e2b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary-dark)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </div>
       </a>
     </div>
